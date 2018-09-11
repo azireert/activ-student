@@ -23,14 +23,13 @@ include('shared/bdd.php');
     ?>
 
     <div class="container">
-    <strong>Nom : </strong><?php echo $donnees['nom']; ?>
-    <strong>Prénom : </strong><?php echo $donnees['prenom']; ?>
-    <strong>Téléphone : </strong><?php echo $donnees['tel']; ?>
-    <strong>Adresse Mail : </strong><?php echo $donnees['mail']; ?>
-    <strong>Promo : </strong><?php echo $donnees['promo']; ?>
-    <strong>Age : </strong><?php echo $donnees['age']; ?>
 
-
+    <strong>Nom : </strong><?php echo $donnees['nom']; ?><br />
+    <strong>Prénom : </strong><?php echo $donnees['prenom']; ?><br />
+    <strong>Téléphone : </strong><?php echo $donnees['tel']; ?><br />
+    <strong>Adresse Mail : </strong><?php echo $donnees['mail']; ?><br />
+    <strong>Promo : </strong><?php echo $donnees['promo']; ?><br />
+    <strong>Age : </strong><?php echo $donnees['age']; ?><br />
 
     <?php
     	$reponse = $conn->query('SELECT permis FROM utilisateur WHERE utilisateur .id = 2 AND utilisateur .permis = 1');
@@ -67,6 +66,8 @@ include('shared/bdd.php');
     $reponse->closeCursor();
 
     ?>
+
+    <a href="edit_profil.php">Edit</a><br />
 
 
     <?php
