@@ -14,12 +14,22 @@
 
             <div class="col-md-4 connexion">
 
-                <form action="../controller/connexion_php.php" method="post" data-bs-hover-animate="pulse">
-                    <div class="form-group"><input class="form-control" type="text" name="name_account" required placeholder="Name Account"></div>
-                    <div class="form-group"><input class="form-control" type="password" name="password" required placeholder="Password"></div>
-                    <div class="form-group"><input class="btn btn-primary" type="submit" name="connexion" value="Log In"></div>
+                <form action="../Controller/inscription.php" method="post" data-bs-hover-animate="pulse">
+                    <div class="illustration"><img src="../../assets/Images/profil.png" class="typcn typcn-user lock" alt="Illustration Picture"></div>
+                    <div class="form-group"><input class="form-control" type="text" name="nom" required placeholder="Nom"></div>
+                    <div class="form-group"><input class="form-control" type="text" name="prenom" required placeholder="Prénom"></div>
+                    <div class="form-group"><input class="form-control" type="text" name="mail" required placeholder="Adresse mail"></div>
+                    <div class="form-group"><input class="form-control" type="text" name="tel" required placeholder="Téléphone"></div>
+                    <div class="form-group"><input class="form-control" type="text" name="age" required placeholder="Age"></div>
+                    <div class="form-group"><input class="form-control" type="password" name="password" required placeholder="Mot de passe"></div>
+                    <div class="form-group"><input class="form-control" type="password" name="password" required placeholder="Confirmer le mot de passe"></div>
+                    <div class="custom-control custom-checkbox mr-sm-2">
+                        <div class="form-group"><input type="checkbox" class="custom-control-input" id="customControlAutosizing">
+                            <label class="custom-control-label" for="customControlAutosizing">Avez-vous le permis ?</label></div>
+                    </div>
+                    <div class="form-group"><input class="btn btn-primary" type="submit" name="inscription" value="Créer un compte"></div>
+                    <a href="../../index.php">Vous avez déjà un compte ? Connectez-vous</a>
 
-                    <a href="pages/views/account.php" class="forgot">Vous n'êtes pas inscrit ? Créez un compte</a>
                 </form>
                 <div>
                 </div>
