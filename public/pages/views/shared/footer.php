@@ -1,5 +1,5 @@
-<center>
-	<div class="container" style="margin-top:20px;">
+<center class="foot">
+	<div class="container " style="margin-top:20px;">
   		<div class="row">
 		  			<div class="col-xs-3" style="margin-left:35%; margin-right:20px;">
 			  			<div id="Facebook_Logo">
@@ -22,8 +22,9 @@
 			  			</div>
 			  		</div>
   		</div>
+        <div id="Infos_Generales" style="margin-bottom:30px;margin-top:20px;">
+            <p>91, rue Nationale, Immeuble Le Plazza, 59000 Lille - <a href="mailto:contactfc@lille-epsi.fr">contactfc@lille-epsi.fr</a> - 03 20 34 35 36 - <a href="mentionsLegales.html">Mentions légales</a> - Réalisation site : Equipe C</p>
+        </div>
 	</div>
-	<div id="Infos_Generales" style="margin-bottom:30px;margin-top:20px;">
-		<p>91, rue Nationale, Immeuble Le Plazza, 59000 Lille - <a href="mailto:contactfc@lille-epsi.fr">contactfc@lille-epsi.fr</a> - 03 20 34 35 36 - <a href="mentionsLegales.html">Mentions légales</a> - Réalisation site : Equipe C</p>
-	</div>
+
 </center>
