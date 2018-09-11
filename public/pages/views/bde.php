@@ -11,4 +11,8 @@
 
 </body>
 
+<footer>
+	<?php include('shared/footer.php'); ?>
+</footer>
+
 </html>
