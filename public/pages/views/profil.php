@@ -23,7 +23,7 @@ include('shared/bdd.php');
             die('Erreur : '.$e->getMessage());
         }
 
-        $reponse = $bdd->query('SELECT * FROM utilisateur WHERE utilisateur .id = 1');
+        $reponse = $bdd->query('SELECT * FROM utilisateur WHERE id = \'' . $_SESSION['id'] . '\'');
 
         if ($donnees = $reponse->fetch()){
 
@@ -39,7 +39,7 @@ include('shared/bdd.php');
     <strong>Age : </strong><?php echo $donnees['age']; ?><br />
 
     <?php
-    	$reponse = $bdd->query('SELECT permis FROM utilisateur WHERE utilisateur .id = 2 AND utilisateur .permis = 1');
+    	$reponse = $bdd->query('SELECT permis FROM utilisateur WHERE id = \'' . $_SESSION['id'] . '\' AND utilisateur .permis = 1');
 
     	if ($donnees = $reponse->fetch()){
     ?>
@@ -49,7 +49,7 @@ include('shared/bdd.php');
 	<a href="edit_profil.php"><p>Edit</p></a>
 
     <?php
-    	$reponse = $bdd->query('SELECT bde FROM utilisateur WHERE utilisateur .id = 1 AND utilisateur .bde = 1');
+    	$reponse = $bdd->query('SELECT bde FROM utilisateur WHERE id = \'' . $_SESSION['id'] . '\' AND utilisateur .bde = 1');
 
     	if ($donnees = $reponse->fetch()){
 
@@ -57,7 +57,7 @@ include('shared/bdd.php');
     <strong>Membre du BDE</strong><br />
 
     <?php
-    	$reponse = $bdd->query('SELECT admin FROM utilisateur WHERE utilisateur .id = 1 AND utilisateur .admin = 1');
+    	$reponse = $bdd->query('SELECT admin FROM utilisateur WHERE id = \'' . $_SESSION['id'] . '\' AND utilisateur .admin = 1');
 
     	if ($donnees = $reponse->fetch()){
 
@@ -74,6 +74,8 @@ include('shared/bdd.php');
 
     ?>
 
+    <a href="edit_profil.php">Edit</a><br />
+
 
     <?php
     	try
@@ -85,7 +87,7 @@ include('shared/bdd.php');
             die('Erreur : '.$e->getMessage());
         }
 
-        $reponse = $bdd->query('SELECT * FROM utilisateur, image WHERE utilisateur .id = image .id_user AND utilisateur .id = 1');
+        $reponse = $bdd->query('SELECT * FROM utilisateur, image WHERE utilisateur .id = image .id_user AND utilisateur .id = \'' . $_SESSION['id'] . '\'');
 
         if ($donnees = $reponse->fetch()){
 

@@ -24,7 +24,7 @@ include('shared/bdd.php');
             die('Erreur : '.$e->getMessage());
         }
 
-        $reponse = $bdd->query('SELECT * FROM utilisateur WHERE utilisateur .id = 1');
+        $reponse = $bdd->query('SELECT * FROM utilisateur WHERE id = \'' . $_SESSION['id'] . '\'');
 
         if ($donnees = $reponse->fetch()){
 
