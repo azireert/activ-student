@@ -22,7 +22,7 @@
                     <div class="form-group"><input class="form-control" type="text" name="tel" required placeholder="Téléphone"></div>
                     <div class="form-group"><input class="form-control" type="text" name="age" required placeholder="Age"></div>
                     <div class="form-group"><input class="form-control" type="password" name="password" required placeholder="Mot de passe"></div>
-                    <div class="form-group"><input class="form-control" type="password" name="password" required placeholder="Confirmer le mot de passe"></div>
+                    <div class="form-group"><input class="form-control" type="password" name="passwordBis" required placeholder="Confirmer le mot de passe"></div>
                     <div class="form-group">
                         <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
                             <option selected>Promotion</option>
@@ -33,7 +33,7 @@
                             <option value="I5">I5</option>
                         </select></div>
                     <div class="custom-control custom-checkbox mr-sm-2">
-                        <div class="form-group"><input type="checkbox" class="custom-control-input" id="customControlAutosizing">
+                        <div class="form-group"><input type="checkbox" name="permis" class="custom-control-input" id="customControlAutosizing">
                             <label class="custom-control-label" for="customControlAutosizing">Avez-vous le permis ?</label></div>
                     </div>
                     <div class="form-group"><input class="btn btn-primary" type="submit" name="inscription" value="Créer un compte"></div>
