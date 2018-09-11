@@ -11,7 +11,7 @@
     $checkMailF = $checkMailR->fetch();
 
     // Le pseudo éxiste t'il?
-    if ($checkMailF['id'] AND $_POST['password'] == $checkMailF['password']){
+    if ($checkMailF['id'] AND password_verify($_POST['password'], $checkMailF['password'])){
         header("location: ../views/home.php");
         
         $_SESSION["id"] = $checkMailF['id'];
