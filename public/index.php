@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="assets/css/global.css">
 </head> 
 
-<body>
+<body class="indexBody">
     
     <center>
         <div class="container" >
@@ -22,11 +22,11 @@
 
 	                <form action="../controller/connexion_php.php" method="post" data-bs-hover-animate="pulse">
 		                <div class="illustration"><img src="assets/Images/cadenas.png" class="typcn typcn-user lock" alt="Illustration Picture"></div>
-		                <div class="form-group"><input class="form-control" type="text" name="name_account" required placeholder="Name Account"></div>
-		                <div class="form-group"><input class="form-control" type="password" name="password" required placeholder="Password"></div>
-		                <div class="form-group"><input class="btn btn-primary" type="submit" name="connexion" value="Log In"></div>
+		                <div class="form-group"><input class="form-control" type="text" name="name_account" required placeholder="Adresse mail"></div>
+		                <div class="form-group"><input class="form-control" type="password" name="password" required placeholder="Mot de passe"></div>
+		                <div class="form-group"><input class="btn btn-primary" type="submit" name="connexion" value="Se connecter"></div>
 
-                            <a href="TestNewMdp.php" class="forgot">Vous n'êtes pas inscrit ? Créez un compte</a>
+                            <a href="pages/views/account.php" class="forgot">Vous n'êtes pas inscrit ? Créez un compte</a>
 		            </form>
                     <div>
                 </div>

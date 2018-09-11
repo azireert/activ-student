@@ -1,18 +1,20 @@
 .connexion {
 
   margin-top: 10em;
-  background-color: rgba(254, 240, 240, 0.32);
+  background-color: white;
   padding : 2em;
+  border :lightgray 1px solid;
+  border-radius: 12px;
 
 }
 
 .lock {
-  height: 200px;
-  width: 200px;
+  height: 125px;
+  width: 125px;
   margin-bottom: 2em;
 }
 
-body {
+.indexBody {
   background-image:url(../Images/trianglify.svg);
   background-size: 2500px;
 }
