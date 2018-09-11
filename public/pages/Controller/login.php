@@ -12,7 +12,7 @@
 
     // Le pseudo éxiste t'il?
     if ($checkMailF['id'] AND $_POST['password'] == $checkMailF['password']){
-        //header("location: ../views/home.php");
+        header("location: ../views/home.php");
         
         $_SESSION["id"] = $checkMailF['id'];
         
