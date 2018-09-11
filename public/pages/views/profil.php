@@ -23,13 +23,16 @@ include('shared/bdd.php');
     ?>
 
     <div class="container">
-
-    <strong>Nom : </strong><?php echo $donnees['nom']; ?><br />
-    <strong>Prénom : </strong><?php echo $donnees['prenom']; ?><br />
-    <strong>Téléphone : </strong><?php echo $donnees['tel']; ?><br />
-    <strong>Adresse Mail : </strong><?php echo $donnees['mail']; ?><br />
-    <strong>Promo : </strong><?php echo $donnees['promo']; ?><br />
-    <strong>Age : </strong><?php echo $donnees['age']; ?><br />
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4 card text-center">
+                <img class="img-fluid" src="../../assets/Images/profil.png" alt="Card image cap">
+                <h1 class="card-title"><?php echo $donnees['prenom']," ",$donnees['nom']; ?></h1>
+            <div class="card-body">
+                <i class="fa fa-envelope"></i><p class="title"><?php echo $donnees['mail']; ?></p>
+                <i class="fa fa-phone"></i><p class="title"><?php echo $donnees['tel']; ?></p>
+                    <p class="title"><?php echo $donnees['promo']; ?></p>
+                    <p class="title"><?php echo $donnees['age']; ?></p>
 
     <?php
     	$reponse = $conn->query('SELECT permis FROM utilisateur WHERE utilisateur .id = 2 AND utilisateur .permis = 1');
@@ -37,9 +40,8 @@ include('shared/bdd.php');
     	if ($donnees = $reponse->fetch()){
     ?>
 
-    <strong>Permis :</strong> Oui<br />
+                    <p class="title">Permis : Oui</p>
 
-	<a href="edit_profil.php"><p>Edit</p></a>
 
     <?php
     	$reponse = $conn->query('SELECT bde FROM utilisateur WHERE utilisateur .id = 1 AND utilisateur .bde = 1');
@@ -47,7 +49,7 @@ include('shared/bdd.php');
     	if ($donnees = $reponse->fetch()){
 
     ?>
-    <strong>Membre du BDE</strong><br />
+                    <p class="title">Membre du BDE</p>
 
     <?php
     	$reponse = $conn->query('SELECT admin FROM utilisateur WHERE utilisateur .id = 1 AND utilisateur .admin = 1');
@@ -55,7 +57,7 @@ include('shared/bdd.php');
     	if ($donnees = $reponse->fetch()){
 
     ?>
-    <strong>Admin</strong><br />
+                    <p class="title">Admin</p>
 
     <?php
     	}
@@ -67,7 +69,7 @@ include('shared/bdd.php');
 
     ?>
 
-    <a href="edit_profil.php">Edit</a><br />
+    <a href="edit_profil.php"><i class="fa fa-pencil"></i></a>
 
 
     <?php
@@ -79,7 +81,11 @@ include('shared/bdd.php');
 
     ?>
 
-    <img style="max-width: 100px;max-height: 100px;border: 1px black solid;border-radius:10px;padding:2px;margin: 15px;" src="../../assets/uploads/<?php echo $donnees['nom']; ?>">
+
+                </div>
+            </div>
+        </div>
+    </div>
 
     <?php
     }
@@ -90,12 +96,8 @@ include('shared/bdd.php');
 
 
 
-
-
 </body>
 
-<footer>
-	<?php include('shared/footer.php'); ?>
-</footer>
+
 
 </html>

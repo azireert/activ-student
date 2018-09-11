@@ -15,16 +15,8 @@ include('shared/bdd.php');
 
 	<form  method="post" action ="../controller/edit_profil_optional_php.php" data-bs-hover-animate="pulse" style="padding-left: 10px;padding-right: 10px;">
    <?php
-        try
-        {
-            $bdd = new PDO('mysql:host=localhost;dbname=activestudent;charset=utf8', 'root', '');
-        }
-            catch(Exception $e)
-        {
-            die('Erreur : '.$e->getMessage());
-        }
 
-        $reponse = $bdd->query('SELECT * FROM utilisateur WHERE id = \'' . $_SESSION['id'] . '\'');
+        $reponse = $conn->query('SELECT * FROM utilisateur WHERE id = \'' . $_SESSION['id'] . '\'');
 
         if ($donnees = $reponse->fetch()){
 

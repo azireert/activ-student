@@ -1,5 +1,5 @@
 <center class="foot">
-	<div class="container " style="margin-top:20px;">
+	<div class="container" style="margin-top:20px;">
   		<div class="row">
 		  			<div class="col-xs-3" style="margin-left:35%; margin-right:20px;">
 			  			<div id="Facebook_Logo">

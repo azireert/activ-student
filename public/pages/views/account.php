@@ -25,7 +25,6 @@
                     <div class="form-group"><input class="form-control" type="password" name="passwordBis" required placeholder="Confirmer le mot de passe"></div>
                     <div class="form-group">
                         <select class="custom-select mr-sm-2" name="promo" id="inlineFormCustomSelect">
-                            <option selected>Promotion</option>
                             <option value="B1">B1</option>
                             <option value="B2">B2</option>
                             <option value="B3">B3</option>

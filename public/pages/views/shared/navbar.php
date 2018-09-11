@@ -33,6 +33,10 @@
     </a>
 </div>
 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	  	<img class="img-fluid logo" src="../../../assets/Images/Fichier_3.svg"/>
 	  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,6 +68,9 @@
 	    	</ul>
 	  	</div>
 	</nav>
+        </div>
+</div>
+</div>
 
 
 
