@@ -9,8 +9,13 @@ $checkMailR -> execute(array(
 $checkMailF = $checkMailR->fetch();
 
 // Le pseudo éxiste t'il?
-if ($checkMailF['id'] AND $_POST['password'] = $checkMailF['password']){
+if ($checkMailF['id'] AND $_POST['password'] == $checkMailF['password']){
     header("location: ../views/home.php");
+    
 }
+else{
+    header("location: ../../index.php");
+}
+
 
 ?>
