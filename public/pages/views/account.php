@@ -24,7 +24,7 @@
                     <div class="form-group"><input class="form-control" type="password" name="password" required placeholder="Mot de passe"></div>
                     <div class="form-group"><input class="form-control" type="password" name="passwordBis" required placeholder="Confirmer le mot de passe"></div>
                     <div class="form-group">
-                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <select class="custom-select mr-sm-2" name="promo" id="inlineFormCustomSelect">
                             <option selected>Promotion</option>
                             <option value="B1">B1</option>
                             <option value="B2">B2</option>
