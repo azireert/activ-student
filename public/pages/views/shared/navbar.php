@@ -14,13 +14,13 @@
     </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img class="d-block w-100" src="../../../assets/Images/trianglify.png" alt="First slide">
+            <img class="d-block w-100" src="../../../assets/Images/banniere-4.jpg" alt="First slide">
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src="../../../assets/Images/people.jpg" alt="Second slide">
+            <img class="d-block w-100" src="../../../assets/Images/banniere-3.jpg" alt="Second slide">
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src="..." alt="Third slide">
+            <img class="d-block w-100" src="../../../assets/Images/banniere-1.jpg" alt="Third slide">
         </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -34,13 +34,13 @@
 </div>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-	  	<a class="navbar-brand" href="#">A.S.(logo)</a>
+	  	<img class="img-fluid logo" src="../../../assets/Images/Fichier_3.svg"/>
 	  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 	    	<span class="navbar-toggler-icon"></span>
 	  	</button>
-	  	<div class="collapse navbar-collapse" id="navbarNav">
+	  	<div class="collapse navbar-collapse text" id="navbarNav">
 	    	<ul class="navbar-nav">
-		      	<li class="nav-item active">
+		      	<li class="nav-item">
 		        	<a class="nav-link" href="home.php">Accueil</a>
 		      	</li>
 		      	<li class="nav-item">
