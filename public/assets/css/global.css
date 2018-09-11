@@ -1,0 +1,18 @@
+.connexion {
+
+  margin-top: 10em;
+  background-color: rgba(254, 240, 240, 0.32);
+  padding : 2em;
+
+}
+
+.lock {
+  height: 200px;
+  width: 200px;
+  margin-bottom: 2em;
+}
+
+body {
+  background-image:url(../Images/trianglify.svg);
+  background-size: 2500px;
+}
