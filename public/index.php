@@ -20,7 +20,7 @@
 
                 <div class="col-md-4 connexion">
 
-	                <form action="../controller/connexion_php.php" method="post" data-bs-hover-animate="pulse">
+	                <form action="pages/Controller/login.php" method="post" data-bs-hover-animate="pulse">
 		                <div class="illustration"><img src="assets/Images/cadenas.png" class="typcn typcn-user lock" alt="Illustration Picture"></div>
 		                <div class="form-group"><input class="form-control" type="text" name="name_account" required placeholder="Adresse mail"></div>
 		                <div class="form-group"><input class="form-control" type="password" name="password" required placeholder="Mot de passe"></div>
