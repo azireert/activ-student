@@ -13,7 +13,7 @@ include('shared/bdd.php');
 
 	<?php include('shared/navbar.php'); ?>
 
-	<form  method="post" action ="../controller/edit_profil_optional_php.php" data-bs-hover-animate="pulse" style="padding-left: 10px;padding-right: 10px;">
+	<form  method="post" action ="../Controller/edit_profil.php" data-bs-hover-animate="pulse" style="padding-left: 10px;padding-right: 10px;">
    <?php
 
         $reponse = $conn->query('SELECT * FROM utilisateur WHERE id = \'' . $_SESSION['id'] . '\'');

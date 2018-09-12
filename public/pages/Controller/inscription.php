@@ -7,40 +7,61 @@ if ($_POST['password'] != $_POST['passwordBis'] or is_int($_POST['age']) or !str
     header("location: ../views/account.php");
 }
 else{
-    $nom = $_POST['nom'];
-    $prenom = $_POST['prenom'];
-    $mail = $_POST['mail'];
-    $tel = $_POST['tel'];
-    $age = $_POST['age'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-
-
-    // Convertion de permis en 1-0
-    if ($_POST['permis'] == true){ 
-        $permis = 1;
+    // Existe t'il déjà un mail comme lui
+    $reqMail = $conn->prepare("SELECT mail FROM utilisateur");
+    $reqMail->execute();
+    $varTest = 0;
+    while ($Fmail = $reqMail->fetch()){
+        if($Fmail['mail'] == $_POST['mail'])
+            $varTest = $varTest + 1;
     }
-    else{
-        $permis = 0;
-    }
-        
-
-    // Requête insertion d'utilisateur
-    $req = $conn->prepare("INSERT INTO utilisateur (nom, prenom, tel, mail, password, admin, bde, age, permis, promo) VALUES (:nom, :prenom, :tel, :mail, :password, 0, 0, :age, :permis, :promo) ");
-    $req->execute(array(
-        'mail' => $mail,
-        'nom' => $nom,
-        'prenom' => $prenom,
-        'tel' => $tel,
-        'age' => $age,
-        'password' => $password,
-        'permis' => $permis,
-        'promo' => $_POST['promo']
-    ));
-
+    if ($varTest == 0){
+        $nom = $_POST['nom'];
+        $prenom = $_POST['prenom'];
+        $mail = $_POST['mail'];
+        $tel = $_POST['tel'];
+        $age = $_POST['age'];
+        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     
-    header("location: ../../index.php");
-
+    
+        // Convertion de permis en 1-0
+        if ($_POST['permis'] == true){ 
+            $permis = 1;
+        }
+        else{
+            $permis = 0;
+        }
+            
+    
+        // Requête insertion d'utilisateur
+        $req = $conn->prepare("INSERT INTO utilisateur (nom, prenom, tel, mail, password, admin, bde, age, permis, promo) VALUES (:nom, :prenom, :tel, :mail, :password, 0, 0, :age, :permis, :promo) ");
+        $req->execute(array(
+            'mail' => $mail,
+            'nom' => $nom,
+            'prenom' => $prenom,
+            'tel' => $tel,
+            'age' => $age,
+            'password' => $password,
+            'permis' => $permis,
+            'promo' => $_POST['promo']
+        ));
+    
+        
+        header("location: ../../index.php");
+    
+        }
+    
+    else{
+        header("location: ../views/account.php");
     }
+}
+
+
+
+
+
+
+   
 
 
 
