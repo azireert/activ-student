@@ -17,7 +17,7 @@
 }
 
 .lock {
-  height: 125px;
+  height: 75px;
   width: 125px;
   margin-bottom: 2em;
 }
@@ -28,7 +28,7 @@
 }
 
 .logo {
-  height: 100px;
+  height: 75px;
   width: 100px;
 }
 
@@ -40,6 +40,7 @@
   padding-bottom: 2em;
   padding-top: 2em;
   background-color: #222222;
+  margin-top: 4em;
 }
 
 #Infos_Generales {
@@ -48,17 +49,45 @@
 
 
 
-.card {
+.cardLeft {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 300px;
+  border-right: none;
+  background-image: linear-gradient(to top, #3f51b1 0%, #5a55ae 13%, #7b5fac 25%, #8f6aae 38%, #a86aa4 50%, #cc6b8e 62%, #f18271 75%, #f3a469 87%, #f7c978 100%);
+  color : white;
+  padding: 2em;
+
+}
+
+.cardRight {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  border-right: none;
+  padding: 2em;
 }
 
 .title {
   color: grey;
-  font-size: 18px;
+  font-size: 20px;
+
 }
+
+span {
+  color: #1b1e21;
+  padding-right: 10px;
+}
+
+
 
 .card-img-top {
   height: 125px;
   width: 125px;
+}
+
+.cardProfil {
+  margin-top: 4em;
+}
+
+.edit {
+  font-size: 24px;
 }
