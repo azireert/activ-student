@@ -60,7 +60,7 @@ include('shared/bdd.php'); ?>
                     </div>
                 </div>
             </div>
-            <div class="col-md-2 map">
+            <div class="col-md-3 map">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d649286.8102845275!2d2.6001847156249998!3d50.52902544999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1536777972320" width="300" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
 
