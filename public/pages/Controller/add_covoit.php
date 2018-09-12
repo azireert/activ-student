@@ -21,5 +21,7 @@ echo $_SESSION['id'];
 echo $permisF['permis'];
 echo $_POST['description'];
 
+header("location: ../views/covoit.php");
+
 
 ?>
