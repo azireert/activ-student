@@ -13,6 +13,8 @@ include('shared/bdd.php');
 
 	<?php include('shared/navbar.php'); ?>
 
+
+
     
     <form  action ="../Controller/actu.php" method="post" data-bs-hover-animate="pulse">
         <div class="container-fluid postForm">
@@ -32,6 +34,8 @@ include('shared/bdd.php');
 
 	<?php
 
+        include('../Controller/is_admin.php');
+
         // We retrieve the contents of many table
         $reponse = $conn->query('SELECT * FROM utilisateur, actu, image WHERE utilisateur .id = actu .auteur AND utilisateur .id = image .id_user ORDER BY actu .id DESC');
 
@@ -41,11 +45,24 @@ include('shared/bdd.php');
 
     ?>
 
-	<img src="../../assets/uploads/<?php echo $donnees['nom']; ?>">
-    <p><strong><?php echo $donnees['prenom']; ?></strong></p>                
+    <div class="container-fluid postContent">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-1 postPhoto text-center">
+                <img class="photoHome" src="../../assets/uploads/<?php echo $donnees['nom']; ?>">
+                <p><strong><?php echo $donnees['prenom']; ?></strong></p>
+            </div>
+            <div class="col-md-5 postBody">
 
-    <p><?php echo $donnees['date']; ?></p>
-    <p><strong><?php echo $donnees['description']; ?></strong></p>
+                <p class="date"><?php echo $donnees['date']; ?></p>
+                <p><?php echo $donnees['description']; ?></p>
+                <?php if($admin === $_SESSION['id']) { ?>
+                <span class="pull-right"><i class="fa fa-remove"></i></span>
+                <?php } ?>
+            </div>
+            </div>
+        </div>
+    </div>
                             
     <?php
             

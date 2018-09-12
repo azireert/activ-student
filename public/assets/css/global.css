@@ -98,3 +98,34 @@ span {
 .postForm {
   margin-top: 2em;
 }
+
+.postBody {
+  background-color: #faebd7;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 0.5em;
+
+}
+
+.postPhoto {
+  background-color: #f6f6f6;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 0.5em;
+}
+
+.photoProfil {
+  border-radius: 50%;
+}
+
+.photoHome {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+
+.postContent {
+  margin-bottom: 2em;
+}
+
+.date {
+  color: grey;
+}

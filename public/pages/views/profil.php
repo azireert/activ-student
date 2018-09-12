@@ -27,7 +27,7 @@ include('shared/bdd.php');
 
     ?>
 
-                <img class="img-fluid" src="../../assets/uploads/<?php echo $donnees['nom']; ?>" alt="Card image cap">
+                <img class="img-fluid photoProfil" src="../../assets/uploads/<?php echo $donnees['nom']; ?>" alt="Card image cap">
 
     <?php
 
