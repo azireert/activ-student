@@ -136,3 +136,20 @@ span {
   margin-top: 2em;
   padding: 1em;
 }
+
+.cardPhoto {
+  background-color: #f6f6f6;
+}
+
+.card-body {
+  background-color: #faebd7;
+}
+
+.card {
+  margin-top: 4em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.map {
+  margin-top: 8em;
+}
