@@ -8,13 +8,18 @@ $permis->execute(array(
 ));
 $permisF = $permis->fetch();
 
-$insertCovoit = $conn->prepare("INSERT INTO covoit (depart, arrivee, description, type) VALUES (:depart, :arrivee, :description, :type");
+$insertCovoit = $conn->prepare("INSERT INTO covoit (depart, arrivee, description, type, auteur) VALUES (:depart, :arrivee, :description, :type, :auteur)");
 $insertCovoit->execute(array(
     'depart' => $_POST['depart'],
     'arrivee' => $_POST['arrivee'],
     'description' => $_POST['description'],
-    'type' => $permisF['permis']
-))
+    'type' => $permisF['permis'],
+    'auteur' => $_SESSION['id']
+)); 
+
+echo $_SESSION['id'];
+echo $permisF['permis'];
+echo $_POST['description'];
 
 
 ?>

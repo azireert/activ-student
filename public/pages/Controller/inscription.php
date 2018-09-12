@@ -4,7 +4,13 @@ include '../views/shared/bdd.php';
 
 // Check de la correspondance mot de passe
 if ($_POST['password'] != $_POST['passwordBis'] or is_int($_POST['age']) or !strstr($_POST['mail'], "@epsi.fr")){
-    header("location: ../views/account.php");
+    //header("location: ../views/account.php");
+    if ($_POST['password'] != $_POST['passwordBis']){
+        echo "password";
+    }
+    if (!strstr($_POST['mail'], "@epsi.fr")){
+        echo "mail non conforme";
+    }
 }
 else{
     // Existe t'il déjà un mail comme lui
@@ -65,7 +71,16 @@ else{
         }
     
     else{
-        header("location: ../views/account.php");
+        //header("location: ../views/account.php");
+        if ($_POST['password'] != $_POST['passwordBis']){
+            echo "password";
+        }
+        if (!strstr($_POST['mail'], "@epsi.fr")){
+            echo "mail non conforme";
+        }
+        if ($varTest == 1){
+            echo "le mail existe deja";
+        }
     }
 }
 
