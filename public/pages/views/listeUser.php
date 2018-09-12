@@ -22,8 +22,16 @@ if($admin != 1 or !$_SESSION['id']){
     $listeUser = $conn->prepare("SELECT * FROM utilisateur");
     $listeUser->execute();
 
+    // Affichage des utilisateurs
     while ($listeUserF = $listeUser->fetch()){
         echo $listeUserF['mail'] . "</br>";
+        echo $listeUserF['nom'] . "</br>";
+        echo $listeUserF['prenom'] . "</br>";
+        echo $listeUserF['bde'] . "</br>";
+        echo $listeUserF['admin'] . "</br>";
+        echo $listeUserF['tel'] . "</br>";
+        echo $listeUserF['permis'] . "</br>";
+        echo "</br>";
     };
     ?>
 
