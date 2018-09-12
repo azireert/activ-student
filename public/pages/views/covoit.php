@@ -8,7 +8,7 @@
 
 <body>
 	<?php include('shared/navbar.php'); ?>
-
+    
 
     <?php // Requête lire les covoit
     $covoit = $conn->prepare("SELECT * FROM covoit, utilisateur WHERE covoit.auteur = utilisateur.id ORDER BY date desc");
