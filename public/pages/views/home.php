@@ -75,7 +75,7 @@ include('shared/bdd.php');
 
         while ( $donnees2 = $reponse2->fetch()){
 
-        if ($donnees2['id_actu_com'] == $donnees['id_actu']){       
+            if ($donnees2['id_actu_com'] == $donnees['id_actu']){       
 
     ?>
 
@@ -91,53 +91,34 @@ include('shared/bdd.php');
     </div>
 
     <?php
-}
-    }
-
+            }
+        }
     ?>
 
-    <div role="tablist" id="accordion-1" style="width: 100%;">
-                <div class="card">
-                    <div class="card-header" role="tab">
-                        <a data-toggle="collapse" aria-expanded="true" aria-controls="accordion-1 .<?php echo "$item"; ?>" href="div#accordion-1 .<?php echo "$item"; ?>"><center><h2>Mettre un commentaire</h2></center></a>
+    <div class="container">
+    <div role="tablist" id="accordion-1">
+        <div class="card">
+            <div class="card-header" role="tab">
+                <a data-toggle="collapse" aria-expanded="true" aria-controls="accordion-1 .<?php echo "$item"; ?>" href="div#accordion-1 .<?php echo "$item"; ?>"><center><h2>Mettre un commentaire</h2></center></a>
+            </div>
+            <div class="collapse <?php echo "$item"; ?>" role="tabpanel" data-parent="#accordion-1">
+                <div class="card-body">
+                    <form method="post" action="../controller/com_actu.php" data-bs-hover-animate="pulse" >
+                        <div class="form-group"><textarea class="form-control" name="description_com" required placeholder="Commentaire"></textarea></div>
+                    <div class="form-group" style="padding:10px;font-size:15px;text-align: center;">
+                        <center><button class="btn btn-primary" type="submit" name="submit" style="padding-left:50px;padding-right:50px;font-size: 15px;margin-top: 10px;">Submit</button></center>
                     </div>
-                    <div class="collapse <?php echo "$item"; ?>" role="tabpanel" data-parent="#accordion-1">
-                        <div class="card-body">
-
-                                <form  action="../controller/com_actu.php" method="post" data-bs-hover-animate="pulse">
-                                    <?php 
-
-                                        $reponse5 = $conn->query('SELECT * FROM auteur, actu WHERE auteur .id = actu .id_actu AND utilisateur .id = \'' . $_SESSION['id'] . '\'');
-
-                                        if ($donnees = $reponse5->fetch()){
-
-                                    ?>
-                                        <div class="col-lg-12">
-                                            <div class="form-group"><textarea class="form-control" rows="5" name="description_com" required placeholder="Commentaire"></textarea></div>
-                                        </div><br />
-                                        <div class="form-group" style="padding:10px;font-size:15px;text-align: center;">
-                                            <center><button class="btn btn-primary" type="submit" name="submit" style="padding-left:50px;padding-right:50px;font-size: 15px;margin-top: 10px;">Submit</button></center>
-                                        </div>
-                                    <?php
-                                            }
-                                        
-                                    ?>
-                                </form>
-
-
-                            </div>
-
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
+        </div>
+    </div>
+    </div>
+
                             
     <?php
-            
         $item++;
-
         }
-
     ?>
 
 </body>
