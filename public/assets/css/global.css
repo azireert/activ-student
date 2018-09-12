@@ -157,3 +157,11 @@ span {
 .cross {
   background-color: #faebd7;
 }
+
+.commentaires {
+  border-right: lightgray 1px solid;
+}
+
+.commentPencil {
+  color: white;
+}

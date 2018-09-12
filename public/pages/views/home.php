@@ -64,10 +64,16 @@ include('shared/bdd.php');
                         </button>
                     </form>
                 <?php } ?>
+                    <button ID="button" class = "btn btn-default btn-lg pull-right cross">
+
+                        <span><i class="fa fa-comment"></i></span>
+                    </button>
+
             </div>
             </div>
         </div>
-    </div>
+
+
 
     <?php
 
@@ -78,16 +84,14 @@ include('shared/bdd.php');
             if ($donnees2['id_actu_com'] == $donnees['id_actu']){       
 
     ?>
-
+    <div style="display: none" id="commentaires" class="container-fluid">
     <div class="row">
-        <div class="col-lg-3">
-            <center><img style="max-width: 100px;max-height: 100px;border: 1px black solid;border-radius:10px;padding:2px;margin-top: 20%" src="../../assets/uploads/<?php echo $donnees2['nom']; ?>"></center>
-            <center><p style="margin:10px;font-size:18px;"><strong><?php echo $donnees2['prenom']; ?></strong></p></center>
+        <div class="col-md-3"></div>
+        <div class="col-md-6 commentaires">
+            <p style="text-align: right; font-size:18px;"><strong><?php echo $donnees2['prenom']." - "; ?></strong><span class="date"><?php echo $donnees2['date_com']; ?></span></p>
+            <p style="text-align: right; font-size: 16px;"><?php echo $donnees2['description_com']; ?></p>
         </div>
-        <div class="col-lg-9" style="border-left: 2px black solid;padding-left: 25px;">
-            <p style="text-align: left; font-size: 12px;"><?php echo $donnees2['date_com']; ?></p>
-            <p style="text-align: left; font-size: 15px;"><?php echo $donnees2['description_com']; ?></p>
-        </div>
+    </div>
     </div>
 
     <?php
@@ -95,25 +99,21 @@ include('shared/bdd.php');
         }
     ?>
 
-    <div class="container">
-    <div role="tablist" id="accordion-1">
-        <div class="card">
-            <div class="card-header" role="tab">
-                <a data-toggle="collapse" aria-expanded="true" aria-controls="accordion-1 .<?php echo "$item"; ?>" href="div#accordion-1 .<?php echo "$item"; ?>"><center><h2>Mettre un commentaire</h2></center></a>
-            </div>
-            <div class="collapse <?php echo "$item"; ?>" role="tabpanel" data-parent="#accordion-1">
-                <div class="card-body">
+
                     <form method="post" action="../controller/com_actu.php" data-bs-hover-animate="pulse" >
-                        <div class="form-group"><textarea class="form-control" name="description_com" required placeholder="Commentaire"></textarea></div>
-                    <div class="form-group" style="padding:10px;font-size:15px;text-align: center;">
-                        <center><button class="btn btn-primary" type="submit" name="submit" style="padding-left:50px;padding-right:50px;font-size: 15px;margin-top: 10px;">Submit</button></center>
-                    </div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-5"></div>
+                                <div class="col-xs-1">
+                                    <button class="btn btn-primary" type="submit"><span class="commentPencil"><i class="fa fa-pencil"></i></span></button>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group"><input type="text" id="comment" class="form-control" placeholder="Entrez votre commentaire"/></div>
+                                </div>
+                            </div>
+                        </div>
                     </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
+
 
                             
     <?php
@@ -121,10 +121,39 @@ include('shared/bdd.php');
         }
     ?>
 
+    <footer>
+        <?php include('shared/footer.php'); ?>
+    </footer>
+
+    <script>
+
+        var i = 0;
+
+        var elementDiv = document.getElementById('button');
+        var elementInput =document.getElementById('comment');
+
+        elementDiv.onclick = function() {
+            if (i % 2 === 0) {
+                document.getElementById('commentaires').style.display = 'block';
+            }else {
+                document.getElementById('commentaires').style.display = 'none';
+            }
+            i ++;
+        };
+
+        elementInput.onfocus = function() {
+            if (i % 2 === 0) {
+                document.getElementById('commentaires').style.display = 'block';
+            }else {
+                document.getElementById('commentaires').style.display = 'none';
+            }
+            i ++;
+        };
+
+    </script>
+
 </body>
 
-<footer>
-	<?php include('shared/footer.php'); ?>
-</footer>
+
 
 </html>
