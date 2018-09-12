@@ -45,8 +45,21 @@ else{
             'permis' => $permis,
             'promo' => $_POST['promo']
         ));
-    
-        
+
+        $image = $conn->prepare("SELECT id FROM utilisateur WHERE mail = :mail");
+        $image->execute(array(
+            'mail' => $_POST['mail']
+        ));
+        $imageF = $image->fetch();
+        session_start();
+        $_SESSION['id'] = $imageF['id'];
+
+        $ima = $conn->prepare("INSERT INTO image (id_user, nom) VALUES (:id, :nom)");
+        $ima->execute(array(
+            'id' => $_SESSION['id'],
+            'nom' => "default.jpg"
+        ));
+
         header("location: ../../index.php");
     
         }
