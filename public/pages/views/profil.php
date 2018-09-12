@@ -13,24 +13,31 @@ include('shared/bdd.php');
 
 	<?php include('shared/navbar.php'); ?>
 
-	<?php
+    <div class="container cardProfil">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-3 cardLeft text-center">
 
-    /*$image = $conn->query('SELECT * FROM utilisateur, image WHERE utilisateur .id = image .id_user AND utilisateur .id = \'' . $_SESSION['id'] . '\'');
+    <?php
 
-    if ($donnees = $reponse->fetch()){}*/
+    $reponse = $conn->query('SELECT * FROM utilisateur, image WHERE utilisateur .id = image .id_user AND utilisateur .id = \'' . $_SESSION['id'] . '\'');
 
+    if ($donnees = $reponse->fetch()){
+
+
+    ?>
+
+                <img class="img-fluid" src="../../assets/uploads/<?php echo $donnees['nom']; ?>" alt="Card image cap">
+
+    <?php
+
+    }
 
         $reponse = $conn->query('SELECT * FROM utilisateur WHERE utilisateur .id = \'' . $_SESSION['id'] . '\'');
 
         if ($donnees = $reponse->fetch()){
 
     ?>
-
-    <div class="container cardProfil">
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-3 cardLeft text-center">
-                <img class="img-fluid" src="../../assets/Images/profil.png" alt="Card image cap">
                 <h1 class="card-title"><?php echo $donnees['prenom']," ",$donnees['nom']; ?></h1>
             </div>
             <div class="col-md-3 cardRight text-center">

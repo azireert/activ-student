@@ -13,20 +13,15 @@ include('shared/bdd.php');
 
 	<?php include('shared/navbar.php'); ?>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-offset-2 col-lg-8">
-                <form  action ="../controller/actu.php" method="post" data-bs-hover-animate="pulse" style="border:1px silver solid;border-radius: 5px;background-color: white;padding-left: 10px;padding-right: 10px;margin-top:50px;">
-                    <h2 class="text-center" style="font-size: 24px;padding:10px;">
-                        <strong>Poster une actu :</strong><br />
-                    </h2>
-                    <div class="form-group"><textarea class="form-control" rows="10" cols="50" name="description" required placeholder="Ecriver votre message ici"></textarea></div>
-                    <div class="form-group">
-                        <center><button class="btn btn-primary" type="submit" name="submit" style="padding-left:50px;padding-right:50px;font-size: 15px;margin-bottom: 20px;">Poster</button></center>
-                    </div>
+    
+    <form  action ="../controller/actu.php" method="post" data-bs-hover-animate="pulse">
+        <h2 class="text-center"><strong>Poster une actu :</strong><br /></h2>
+        <div class="form-group"><textarea class="form-control" rows="10" cols="50" name="description" required placeholder="Ecriver votre message ici"></textarea></div>
+            <div class="form-group">
+                <center><button class="btn btn-primary" type="submit" name="submit">Poster</button></center>
             </div>
-        </div>
-    </div>
+    </form>
+            
 
 	<?php
 
