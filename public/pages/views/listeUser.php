@@ -31,6 +31,17 @@ if($admin != 1 or !$_SESSION['id']){
         echo $listeUserF['admin'] . "</br>";
         echo $listeUserF['tel'] . "</br>";
         echo $listeUserF['permis'] . "</br>";
+        ?>
+        <!-- Suppression d'utilisateur (bouton) -->
+        <form action="../Controller/deleteUser.php" method="post">
+            <div class="form-group"><button class="btn btn-primary" type="submit" name="delete"> Supprimer ce compte </button></div>
+            <?php $_SESSION['userDelete'] = $listeUserF['id']; ?>
+        </form>
+        <form action="../Controller/editUser.php" method="post">
+            <div class="form-group"><button class="btn btn-primary" type="submit" name="update"> Modifier ce compte </button></div>
+            
+        </form>
+        <?php
         echo "</br>";
     };
     ?>
