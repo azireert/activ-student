@@ -53,6 +53,7 @@ include('shared/bdd.php');
     ?>
 
                     <p class="title"><span><i class="fa fa-road"></i></span>Permis : Oui</p>
+                    
 
 
     <?php
@@ -63,16 +64,18 @@ include('shared/bdd.php');
     ?>
                     <p class="title">Membre du BDE</p>
 
-    <?php
+    <?php }
     	$reponse = $conn->query('SELECT admin FROM utilisateur WHERE utilisateur .id = \'' . $_SESSION['id'] . '\' AND utilisateur .admin = 1');
-
+        
+        // Test du rang admin
     	if ($donnees = $reponse->fetch()){
+
 
     ?>
                     <p class="title">Admin</p>
 
     <?php
-    	}
+    	
     	}
     	}
     }
@@ -80,7 +83,7 @@ include('shared/bdd.php');
     $reponse->closeCursor();
 
     ?>
-
+    
     <p class = edit><a href="edit_profil.php"><i class="fa fa-pencil"></i></a></p>
 
 

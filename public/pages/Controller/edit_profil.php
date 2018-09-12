@@ -23,7 +23,8 @@
 
             // version protégée contre les injections sql
             $sql =    //insertion des donnees dans la base de donnee
-            'UPDATE utilisateur SET tel="'.$_POST['tel'].'" , promo = "'.$_POST['promo'].'", age = "'.$_POST['age'].'", permis = "'.$_POST['permis'].'"';
+            'UPDATE utilisateur SET tel="'.$_POST['tel'].'" , promo = "'.$_POST['promo'].'", age = "'.$_POST['age'].'", permis = "'.$_POST['permis'].'"
+            WHERE utilisateur.id = '.$_SESSION['id'];
             // var_dump($sql);
 
             $conn->query($sql);

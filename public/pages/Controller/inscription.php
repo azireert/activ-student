@@ -4,7 +4,7 @@ include '../views/shared/bdd.php';
 
 // Check de la correspondance mot de passe
 if ($_POST['password'] != $_POST['passwordBis'] or is_int($_POST['age']) or !strstr($_POST['mail'], "@epsi.fr")){
-    //header("location: ../views/account.php");
+    header("location: ../views/account.php");
     if ($_POST['password'] != $_POST['passwordBis']){
         echo "password";
     }
@@ -71,7 +71,7 @@ else{
         }
     
     else{
-        //header("location: ../views/account.php");
+        header("location: ../views/account.php");
         if ($_POST['password'] != $_POST['passwordBis']){
             echo "password";
         }
