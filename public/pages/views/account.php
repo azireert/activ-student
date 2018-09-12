@@ -20,7 +20,7 @@
                     <div class="form-group"><input class="form-control" type="text" name="prenom" required placeholder="Prénom"></div>
                     <div class="form-group"><input class="form-control" type="text" name="mail" required placeholder="Adresse mail"></div>
                     <div class="form-group"><input class="form-control" type="text" name="tel" required placeholder="Téléphone"></div>
-                    <div class="form-group"><input class="form-control" type="text" name="age" required placeholder="Age"></div>
+                    <div class="form-group"><input class="form-control" type="number" name="age" required placeholder="Age"></div>
                     <div class="form-group"><input class="form-control" type="password" name="password" required placeholder="Mot de passe"></div>
                     <div class="form-group"><input class="form-control" type="password" name="passwordBis" required placeholder="Confirmer le mot de passe"></div>
                     <div class="form-group">
