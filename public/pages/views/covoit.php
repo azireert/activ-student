@@ -6,9 +6,11 @@
 </head> 
 
 <body>
-
 	<?php include('shared/navbar.php'); ?>
 
+
+
+    <?php include('shared/footer.php'); ?>
 </body>
 
 </html>
