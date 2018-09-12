@@ -1,3 +1,7 @@
+<?php
+session_start();
+include('shared/bdd.php');
+?>
 <!DOCTYPE html>
 <html>
 
@@ -9,23 +13,95 @@
 
 	<?php include('shared/navbar.php'); ?>
 
-<center>
 	<div class="container">
 		<div class="row">
-			<h2>Équipe du BDE</h2>
-		</div>
-		<div class="row">
-			<div class="col-sm-5">
-				<p>Président : Toto</p>
-				<p>Secretaire : Jackie</p>
+			<div class="col-sm-3">
+				<h2>Équipe du BDE</h2>
+				<p>Président : Toto <br />0641526354</p>
+				<p>Secretaire : Jackie <br />0504865125</p>
+				<p>Vice Président : Packman <br />1587562354</p>
+				<p>Tresorier : Ruel <br />1475895458</p>
 			</div>
-			<div class="col-sm-5">
-				<p>Vice Président : Packman</p>
-				<p>Tresorier : Ruel</p>
+			<div class="col-sm-8">
+				<h2>Voici les actualitées et sorties du BDE</h2>
+
+				<form  action ="../Controller/bde.php" method="post" data-bs-hover-animate="pulse">
+			        <div class="container-fluid postForm">
+			            <div class="row">
+			                <div class="col-md-4">
+			            <div class="form-group">
+	                        <select class="custom-select mr-sm-2" name="type" id="inlineFormCustomSelect">
+	                            <option value="B1">Information générale</option>
+	                            <option value="B2">Sortie</option>
+	                            <option value="B3">Vie du BDE</option>
+	                        </select></div>
+			                <div class="form-group"><input class="form-control" type="date" name="date" required placeholder="Date de l'évenement"></div>
+			                <div class="form-group"><input class="form-control" type="text" name="lieu" required placeholder="Lieu de l'évenement"></div>
+	                    </div>
+	                    <div class="col-md-8">
+			            <div class="form-group">
+			                <textarea class="form-control" rows="5" cols="50" name="description" required placeholder="Exprimez vous"></textarea></div>
+			            <div class="form-group">
+			                <center><button class="btn btn-primary" type="submit" name="submit"><span class="pencilPost"><i class="fa fa-send"></i></span>Poster</button></center>
+			            </div>
+			                </div>
+			            </div>
+			        </div>
+			    </form>
+
+				<?php
+
+			        include('../Controller/is_admin.php');
+			        include('../Controller/is_bde.php');
+
+			        // We retrieve the contents of many table
+			        $reponse = $conn->query('SELECT * FROM utilisateur, bde, image WHERE utilisateur .id = bde .auteur AND utilisateur .id = image .id_user ORDER BY bde .id DESC');
+
+			        $item = "item-1";
+
+			        while ($donnees = $reponse->fetch()){ // While I have answer ---> I display data in a loop
+
+			    ?>
+
+			    <div class="container-fluid postContent">
+			        <div class="row">
+			            <div class="col-md-1"></div>
+			            <div class="col-md-2 postPhoto text-center">
+			                <img class="photoHome" src="../../assets/uploads/<?php echo $donnees['nom']; ?>">
+			                <p><strong><?php echo $donnees['prenom']; ?></strong></p>
+			            </div>
+			            <div class="col-md-6 postBody">
+			                <p class="date"><?php echo $donnees['date_post']; ?></p>
+			                <p><?php echo $donnees['description']; ?></p>
+			                <p>Date et heure de l'évenement : <?php echo $donnees['date']; ?></p>
+			                <?php if($admin == 1 || $Bde == 1) { ?>
+			                    <form action="../Controller/deleteActu.php" method="post">
+			                        <button type = "submit" class = "btn btn-default btn-lg pull-right">
+			                            <?php $_SESSION['id'] = $donnees['id']; ?>
+			                            <span><i class="fa fa-remove"></i></span>
+			                        </button>
+			                    </form>
+			                <?php } ?>
+			            </div>
+			        </div>
+			    </div>
+
+			    <?php
+			        $item++;
+			        }
+			    ?>
+
+
+            </div>
+        </div>
+    </div>
+
 			</div>
+
+
+
 		</div>
 	</div>
-</center>
 
 </body>
 
