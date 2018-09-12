@@ -10,21 +10,17 @@ include('shared/bdd.php');
 </head> 
 
 <body>
-
-	<?php include('shared/navbar.php'); ?>
-
+    <?php include('shared/navbar.php'); 
+    include('../Controller/is_admin.php');?>
+    
     <div class="container cardProfil">
         <div class="row">
-            <div class="col-md-3"></div>
+            <!--<div class="col-md-3"></div>-->
             <div class="col-md-3 cardLeft text-center">
 
     <?php
-
     $reponse = $conn->query('SELECT * FROM utilisateur, image WHERE utilisateur .id = image .id_user AND utilisateur .id = \'' . $_SESSION['id'] . '\'');
-
     if ($donnees = $reponse->fetch()){
-
-
     ?>
 
                 <img class="img-fluid photoProfil" src="../../assets/uploads/<?php echo $donnees['nom']; ?>" alt="Card image cap">
@@ -81,21 +77,30 @@ include('shared/bdd.php');
     }
 
     $reponse->closeCursor();
-
     ?>
     
     <p class = edit><a href="edit_profil.php"><i class="fa fa-pencil"></i></a></p>
 
-
-    <?php
-
-
-
-
-    ?>
-
-
                 </div>
+            <div class="col-md-3"></div>
+
+            <!-- Espace Admin -->
+        <?php if ($admin == 1){ ?>
+            <div class="col-md-3 cardRight text-center">
+                <h5> Espace Administrateur </h1></br>
+                <form action="#" method="post"> 
+                    <div class="form-group"><button class="btn btn-primary" type="submit" name="compte"> Créer un compte </button></div>
+                </form>
+                <form action="#" method="post">
+                    <div class="form-group"><button class="btn btn-primary" type="submit" name="deleteCompte"> Supprimer un compte </button></div>
+                </form>
+                <form action="listeUser.php" method="post">   
+                    <div class="form-group"><button class="btn btn-primary" type="submit" name="updateCompte"> Modifier un compte </button></div>
+                </form>
+            </div>
+            <!-- Fin espace Admin -->
+        <?php } ?>
+
             </div>
         </div>
 
