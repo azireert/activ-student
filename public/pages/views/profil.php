@@ -16,7 +16,7 @@ include('shared/bdd.php');
 	<?php
 
 
-        $reponse = $conn->query('SELECT * FROM utilisateur WHERE utilisateur .id = 1');
+        $reponse = $conn->query('SELECT * FROM utilisateur WHERE utilisateur .id = \'' . $_SESSION['id'] . '\'');
 
         if ($donnees = $reponse->fetch()){
 
@@ -35,7 +35,7 @@ include('shared/bdd.php');
                     <p class="title"><?php echo $donnees['age']; ?></p>
 
     <?php
-    	$reponse = $conn->query('SELECT permis FROM utilisateur WHERE utilisateur .id = 2 AND utilisateur .permis = 1');
+    	$reponse = $conn->query('SELECT permis FROM utilisateur WHERE utilisateur .id = \'' . $_SESSION['id'] . '\' AND utilisateur .permis = 1');
 
     	if ($donnees = $reponse->fetch()){
     ?>
@@ -44,7 +44,7 @@ include('shared/bdd.php');
 
 
     <?php
-    	$reponse = $conn->query('SELECT bde FROM utilisateur WHERE utilisateur .id = 1 AND utilisateur .bde = 1');
+    	$reponse = $conn->query('SELECT bde FROM utilisateur WHERE utilisateur .id = \'' . $_SESSION['id'] . '\' AND utilisateur .bde = 1');
 
     	if ($donnees = $reponse->fetch()){
 
@@ -52,7 +52,7 @@ include('shared/bdd.php');
                     <p class="title">Membre du BDE</p>
 
     <?php
-    	$reponse = $conn->query('SELECT admin FROM utilisateur WHERE utilisateur .id = 1 AND utilisateur .admin = 1');
+    	$reponse = $conn->query('SELECT admin FROM utilisateur WHERE utilisateur .id = \'' . $_SESSION['id'] . '\' AND utilisateur .admin = 1');
 
     	if ($donnees = $reponse->fetch()){
 
@@ -75,7 +75,7 @@ include('shared/bdd.php');
     <?php
 
 
-        $reponse = $conn->query('SELECT * FROM utilisateur, image WHERE utilisateur .id = image .id_user AND utilisateur .id = 1');
+        $reponse = $conn->query('SELECT * FROM utilisateur, image WHERE utilisateur .id = image .id_user AND utilisateur .id = \'' . $_SESSION['id'] . '\'');
 
         if ($donnees = $reponse->fetch()){
 
