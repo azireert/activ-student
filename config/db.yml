@@ -2,6 +2,6 @@ driver: pdo_mysql
 host: "localhost"
 port: 3306
 user: "root"
-password: "basketeurdu59"
+password: ""
 dbname: "activestudent"
 charset: "utf8"

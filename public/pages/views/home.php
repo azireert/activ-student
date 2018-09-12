@@ -57,8 +57,9 @@ include('shared/bdd.php');
                 <p class="date"><?php echo $donnees['date']; ?></p>
                 <p><?php echo $donnees['description']; ?></p>
                 <?php if($admin == 1) { ?>
-                    <form>
+                    <form action="../Controller/deleteActu.php" method="post">
                         <button type = "submit" class = "btn btn-default btn-lg pull-right">
+                            <?php $_SESSION['id_actu'] = $donnees['id_actu']; ?>
                             <span><i class="fa fa-remove"></i></span>
                         </button>
                     </form>
