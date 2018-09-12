@@ -37,7 +37,7 @@ include('shared/bdd.php');
         include('../Controller/is_admin.php');
 
         // We retrieve the contents of many table
-        $reponse = $conn->query('SELECT * FROM utilisateur, actu, image WHERE utilisateur .id = actu .auteur AND utilisateur .id = image .id_user ORDER BY actu .id DESC');
+        $reponse = $conn->query('SELECT * FROM utilisateur, actu, image WHERE utilisateur .id = actu .auteur AND utilisateur .id = image .id_user ORDER BY actu .id_actu DESC');
 
         $item = "item-1";
 
@@ -63,6 +63,33 @@ include('shared/bdd.php');
             </div>
         </div>
     </div>
+
+    <?php
+
+        $reponse2 = $conn->query('SELECT * FROM utilisateur, image, actu_com, actu WHERE utilisateur .id = image .id_user AND utilisateur .id = actu_com .id_utilisateur AND actu .id_actu = actu_com .id_actu_com ');
+
+        while ( $donnees2 = $reponse2->fetch()){
+
+        if ($donnees2['id_actu_com'] == $donnees['id_actu']){       
+
+    ?>
+
+    <div class="row">
+        <div class="col-lg-3">
+            <center><img style="max-width: 100px;max-height: 100px;border: 1px black solid;border-radius:10px;padding:2px;margin-top: 20%" src="../../assets/uploads/<?php echo $donnees2['nom']; ?>"></center>
+            <center><p style="margin:10px;font-size:18px;"><strong><?php echo $donnees2['prenom']; ?></strong></p></center>
+        </div>
+        <div class="col-lg-9" style="border-left: 2px black solid;padding-left: 25px;">
+            <p style="text-align: left; font-size: 12px;"><?php echo $donnees2['date_com']; ?></p>
+            <p style="text-align: left; font-size: 15px;"><?php echo $donnees2['description_com']; ?></p>
+        </div>
+    </div>
+
+    <?php
+}
+    }
+
+    ?>
                             
     <?php
             
