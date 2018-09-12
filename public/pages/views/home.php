@@ -99,31 +99,16 @@ include('shared/bdd.php');
                     <div class="collapse <?php echo "$item"; ?>" role="tabpanel" data-parent="#accordion-1">
                         <div class="card-body">
 
-                            <?php
-
-                                if ($CanAnswer == "oui"){
-
-                            ?>
-
-                                <form  action="../controller/faq_answer_php.php" method="post" data-bs-hover-animate="pulse">
+                                <form  action="../controller/com_actu.php" method="post" data-bs-hover-animate="pulse">
                                     <?php 
 
-                                        $reponse5 = $bdd->query('SELECT * FROM customer, faq WHERE customer .id_customer = faq .id_customer AND name_account = \'' . $_SESSION['name_account'] . '\'');
+                                        $reponse5 = $conn->query('SELECT * FROM auteur, actu WHERE auteur .id = actu .id_actu AND utilisateur .id = \'' . $_SESSION['id'] . '\'');
 
                                         if ($donnees = $reponse5->fetch()){
 
                                     ?>
-                                        <div class="col-lg-4" style="padding:10px;font-size:15px;text-align: center;">
-                                            <div class="form-group">Your ID customer :<input class="form-control" type="int" name="id_customer" value="<?php echo $donnees['id_customer'] ?>" required></div>
-                                        </div>
-                                        <div class="col-lg-4" style="padding:10px;font-size:15px;text-align: center;">
-                                            <div class="form-group">Your password :<input class="form-control" type="password" name="password" required placeholder="Password"></div>
-                                        </div>
-                                        <div class="col-lg-4" style="padding:10px;font-size:15px;text-align: center;">
-                                            <div class="form-group">Question title : <input class="form-control" style="color: black;" type="int" name="faq_title2" required></div>
-                                        </div>
                                         <div class="col-lg-12">
-                                            <div class="form-group"><textarea class="form-control" rows="5" name="faq_answer" required placeholder="FAQ Answer"></textarea></div>
+                                            <div class="form-group"><textarea class="form-control" rows="5" name="description_com" required placeholder="Commentaire"></textarea></div>
                                         </div><br />
                                         <div class="form-group" style="padding:10px;font-size:15px;text-align: center;">
                                             <center><button class="btn btn-primary" type="submit" name="submit" style="padding-left:50px;padding-right:50px;font-size: 15px;margin-top: 10px;">Submit</button></center>
@@ -134,19 +119,6 @@ include('shared/bdd.php');
                                     ?>
                                 </form>
 
-                                <?php
-
-                                          }
-                                else {
-
-                                        echo '<h3 style="color: red; text-align: center">
-                                            <p>You must log in if you wish to answer.</p>
-                                            <button><a href="login.php">Log In</a></button>
-                                            </h3>';
-                                            
-                                    }
-
-                                ?>
 
                             </div>
 
