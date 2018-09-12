@@ -15,6 +15,10 @@ include('shared/bdd.php');
 
 	<?php
 
+    /*$image = $conn->query('SELECT * FROM utilisateur, image WHERE utilisateur .id = image .id_user AND utilisateur .id = \'' . $_SESSION['id'] . '\'');
+
+    if ($donnees = $reponse->fetch()){}*/
+
 
         $reponse = $conn->query('SELECT * FROM utilisateur WHERE utilisateur .id = \'' . $_SESSION['id'] . '\'');
 
@@ -22,17 +26,18 @@ include('shared/bdd.php');
 
     ?>
 
-    <div class="container">
+    <div class="container cardProfil">
         <div class="row">
-            <div class="col-md-4"></div>
-            <div class="col-md-4 card text-center">
+            <div class="col-md-3"></div>
+            <div class="col-md-3 cardLeft text-center">
                 <img class="img-fluid" src="../../assets/Images/profil.png" alt="Card image cap">
                 <h1 class="card-title"><?php echo $donnees['prenom']," ",$donnees['nom']; ?></h1>
-            <div class="card-body">
-                <i class="fa fa-envelope"></i><p class="title"><?php echo $donnees['mail']; ?></p>
-                <i class="fa fa-phone"></i><p class="title"><?php echo $donnees['tel']; ?></p>
-                    <p class="title"><?php echo $donnees['promo']; ?></p>
-                    <p class="title"><?php echo $donnees['age']; ?></p>
+            </div>
+            <div class="col-md-3 cardRight text-center">
+                <p class="title"><span><i class="fa fa-envelope"></i></span><?php echo $donnees['mail']; ?></p>
+                <p class="title"><span><i class="fa fa-phone"></i></span><?php echo $donnees['tel']; ?></p>
+                    <p class="title"><span><i class="fa fa-briefcase"></i></span><?php echo $donnees['promo']; ?></p>
+                    <p class="title"><span><i class="fa fa-leaf"></i></span><?php echo $donnees['age']; ?> ans</p>
 
     <?php
     	$reponse = $conn->query('SELECT permis FROM utilisateur WHERE utilisateur .id = \'' . $_SESSION['id'] . '\' AND utilisateur .permis = 1');
@@ -40,7 +45,7 @@ include('shared/bdd.php');
     	if ($donnees = $reponse->fetch()){
     ?>
 
-                    <p class="title">Permis : Oui</p>
+                    <p class="title"><span><i class="fa fa-road"></i></span>Permis : Oui</p>
 
 
     <?php
@@ -69,15 +74,13 @@ include('shared/bdd.php');
 
     ?>
 
-    <a href="edit_profil.php"><i class="fa fa-pencil"></i></a>
+    <p class = edit><a href="edit_profil.php"><i class="fa fa-pencil"></i></a></p>
 
 
     <?php
 
 
-        $reponse = $conn->query('SELECT * FROM utilisateur, image WHERE utilisateur .id = image .id_user AND utilisateur .id = \'' . $_SESSION['id'] . '\'');
 
-        if ($donnees = $reponse->fetch()){
 
     ?>
 
@@ -85,14 +88,17 @@ include('shared/bdd.php');
                 </div>
             </div>
         </div>
-    </div>
+
 
     <?php
-    }
 
     $reponse->closeCursor();
 
     ?>
+
+<footer>
+    <?php include ("shared/footer.php") ?>
+</footer>
 
 
 
