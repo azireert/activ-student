@@ -94,7 +94,7 @@ include('shared/bdd.php');
     <div role="tablist" id="accordion-1" style="width: 100%;">
                 <div class="card">
                     <div class="card-header" role="tab">
-                        <a data-toggle="collapse" aria-expanded="true" aria-controls="accordion-1 .<?php echo "$item"; ?>" href="div#accordion-1 .<?php echo "$item"; ?>"><h2 style="text-align: center;">Answer</h2></a>
+                        <a data-toggle="collapse" aria-expanded="true" aria-controls="accordion-1 .<?php echo "$item"; ?>" href="div#accordion-1 .<?php echo "$item"; ?>"><center><h2>Mettre un commentaire</h2></center></a>
                     </div>
                     <div class="collapse <?php echo "$item"; ?>" role="tabpanel" data-parent="#accordion-1">
                         <div class="card-body">
