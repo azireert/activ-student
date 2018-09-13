@@ -62,9 +62,13 @@
 		      	<li class="nav-item">
 		        	<a class="nav-link" href="profil.php">Profil</a>
 		      	</li>
-		      	<li class="nav-item">
-		        	<a class="nav-link" href="deco.php">Déconnexion</a>
-		      	</li>
+                <li class="nav-item"> <!-- La barre de recherche n'est pas fonctionnel, elle est juste placé pour prévoir de la mettre en place par la suite -->
+                    <form name="barre">
+                    <input type="text" name="barre" id="barre" placeholder="Rechercher..." onclick=" rechercher()" style="width: 180px;height: 30px; margin-top: 10px;" /></form>
+                </li>
+                <li class="nav-item" style="margin-left:200px;">
+                    <a class="nav-link" href="deco.php"><img src="../../../assets/Images/cadenas.png" style="height: 40px; width:40px;" /></a>
+                </li>
 	    	</ul>
 	  	</div>
 	</nav>
