@@ -34,17 +34,8 @@ include('../Controller/is_admin.php'); ?>
                             <option value="I5">I5</option>
                         </select></div>
                     <!-- Seulement si admin -->
-                    <?php if($admin == 1){ ?>
                         <div class="custom-control custom-checkbox mr-sm-2">
-                        <div class="form-group"><input type="checkbox" name="admin" class="custom-control-input" id="customControlAutosizing">
-                            <label class="custom-control-label" for="customControlAutosizing">Admin</label></div>
-                        </div>
 
-                        <div class="custom-control custom-checkbox mr-sm-2">
-                        <div class="form-group"><input type="checkbox" name="bde" class="custom-control-input" id="customControlAutosizing a">
-                            <label class="custom-control-label" for="customControlAutosizing a">BDE</label></div>
-                        </div>
-                    <?php }?>
 
                     <div class="custom-control custom-checkbox mr-sm-2">
                         <div class="form-group"><input type="checkbox" name="permis" class="custom-control-input" id="customControlAutosizing b">

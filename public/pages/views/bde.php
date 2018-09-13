@@ -71,7 +71,7 @@ include('shared/bdd.php');
 	include('../Controller/is_bde.php');
 
 	// We retrieve the contents of many table
-	$reponse = $conn->query('SELECT bde.id_bde , image.nom , utilisateur.prenom , bde.date , bde.lieu ,bde.description,YEAR(date_post) as an ,MONTH (date_post) as mois , DAY(date_post) as jour ,HOUR(date_post) as heure, MINUTE(date_post) as minutes FROM utilisateur, bde, image WHERE utilisateur .id = bde .auteur AND utilisateur .id = image .id_user ORDER BY bde .id_bde DESC');
+	$reponse = $conn->query('SELECT bde.id_bde , bde.type , image.nom , utilisateur.prenom , bde.date , bde.lieu ,bde.description,YEAR(date_post) as an ,MONTH (date_post) as mois , DAY(date_post) as jour ,HOUR(date_post) as heure, MINUTE(date_post) as minutes FROM utilisateur, bde, image WHERE utilisateur .id = bde .auteur AND utilisateur .id = image .id_user ORDER BY bde .id_bde DESC');
 
 	while ($donnees = $reponse->fetch()){ // Tant que l'on a une réponse positive, la boucle fonctionne
 
@@ -95,20 +95,42 @@ include('shared/bdd.php');
                     </ul>
                     <div class="card-body">
                         <p class="date"><?php echo "le ".$donnees['jour']."/".$donnees['mois']."/".$donnees['an']." à ".$donnees['heure']." : ".$donnees['minutes']; ?></p>
+                        
+
+
+
+
+
+
+                        <?php if ($donnees['type'] == "sortie") { ?> 
+
+                            <form action="../Controller/participe.php" method="post" data-bs-hover-animate="pulse">
+                                <div class="custom-control custom-checkbox mr-sm-2">
+                                    <div class="form-group">
+                                        <input type="checkbox" name="participe" class="custom-control-input" id="customControlAutosizing" required>
+                                        <label class="custom-control-label" for="customControlAutosizing">Je viens !</label>
+                                        <button class="btn btn-primary" value=<?php echo $donnees['id_bde']; ?> name="id_bde" type="submit"><span class="commentPencil"><i class="fa fa-pencil"></i></span></button> Nombre de participants : ...
+                                    </div>
+                                </div>
+                            </form>
+
+                            
+
+
+                        <?php } ?>
+
+
+
+
+
+
+
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
 
     <?php
 
@@ -116,10 +138,7 @@ include('shared/bdd.php');
 
         while ( $donnees2 = $reponse2->fetch()){
 
-            if ($donnees['id_bde'] == $donnees2['id_bde_com']){  
-
-            echo $donnees['id_bde'];  
-            echo $donnees2['id_bde_com'];     
+            if ($donnees['id_bde'] == $donnees2['id_bde_com']){      
 
     ?>
     <div style="display: block" id="commentaires" class="container-fluid">
@@ -151,18 +170,6 @@ include('shared/bdd.php');
             </div>
         </div>
     </form>
-
-
-
-
-
-
-
-
-
-
-
-
 
 	<?php } ?>
 
