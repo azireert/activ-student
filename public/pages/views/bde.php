@@ -126,7 +126,7 @@ include('shared/bdd.php');
                                     <div class="form-group">
                                         <input type="checkbox" name="participe" class="custom-control-input" id="customControlAutosizing" required>
                                         <label class="custom-control-label" for="customControlAutosizing">Je viens !</label>
-                                        <button class="btn btn-primary" value=<?php echo $donnees['id_bde']; ?> name="id_bde" type="submit"><span class="commentPencil"><i class="fa fa-pencil"></i></span></button> 
+                                        <button class="btn btn-primary cross" value=<?php echo $donnees['id_bde']; ?> name="id_bde" type="submit"><span><i class="fa fa-check"></i></span></button>
                                     </div>
                                 </div>
                             </form>
