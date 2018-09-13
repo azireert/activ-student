@@ -29,6 +29,7 @@
 
             $conn->query($sql);
             header('Location: ../views/profil.php');
-
         }
     }
+            
+

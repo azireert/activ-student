@@ -50,7 +50,6 @@ include('shared/bdd.php');
                         </div>
                         </div>
 
-
                     <div class="form-group"><button class="btn btn-primary" type="submit" name="submit" style="padding-left:50px;padding-right:50px;font-size: 15px;">Modifier le profil</button></div><br /><br />
                 </div>
             </div>
