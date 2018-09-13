@@ -33,6 +33,17 @@ $delImg->execute(array(
     'id' => $_POST['delete']
 ));
 
+// Delete covoit
+$delCovoit = $conn->prepare("DELETE FROM covoit_com WHERE id_utilisateur = :id");
+$delCovoit->execute(array(
+    'id' => $_POST['delete']
+));
+
+$delBde = $conn->prepare("DELETE FROM bde_com WHERE id_utilisateur = :id");
+$delBde->execute(array(
+    'id' => $_POST['delete']
+));
+
 
 
 // Parcours des actu liées à l'utilisateur
@@ -54,7 +65,7 @@ while ($listeActuF = $listeActu->fetch()){
 // Parcours des covoit liées à l'utilisateur
 while ($listeCovoitF = $listeCovoit->fetch()){
     // Delete covoit_com
-    $deleteCovoit_com = $conn->prepare("DELETE FROM covoit_com WHERE id_covoit = :id");
+    $deleteCovoit_com = $conn->prepare("DELETE FROM covoit_com WHERE id_covoit_com = :id");
     $deleteCovoit_com->execute(array(
         'id' => $listeCovoitF['id_covoit']
     ));
@@ -70,9 +81,9 @@ while ($listeCovoitF = $listeCovoit->fetch()){
 // Parcours des bde liées à l'utilisateur
 while ($listeBdeF = $listeBde->fetch()){
     // Delete bde_com
-    $deleteBde_com = $conn->prepare("DELETE FROM bde_com WHERE id_bde = :id");
+    $deleteBde_com = $conn->prepare("DELETE FROM bde_com WHERE id_bde_com = :id");
     $deleteBde_com->execute(array(
-        'id' => $listeBdeF['id']
+        'id' => $listeBdeF['id_bde']
     ));
 
     
