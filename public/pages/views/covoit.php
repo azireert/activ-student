@@ -10,7 +10,14 @@ include('shared/bdd.php'); ?>
 
 <body>
 	<?php include('shared/navbar.php'); ?>
-    <?php include('shared/banner.php'); ?>
+    <div class="container-fluid banner">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-3">
+                <h1 class="bannerTitle"><strong>Covoiturage</strong></h1>
+            </div>
+        </div>
+    </div>
     
     <!-- Formulaire pour remplir un nouveau post en covoit -->
     <form  action ="../Controller/add_covoit.php" method="post" data-bs-hover-animate="pulse">
@@ -31,7 +38,7 @@ include('shared/bdd.php'); ?>
 
 
         <?php // Requête lire les covoit
-        $covoit = $conn->prepare("SELECT nom ,description,depart,arrivee,tel,YEAR(date) as an ,MONTH (date) as mois , DAY(date) as jour ,HOUR(date) as heure, MINUTE(date) as minutes FROM covoit, utilisateur WHERE covoit.auteur = utilisateur.id ORDER BY date desc");
+        $covoit = $conn->prepare("SELECT nom , id_covoit,description,depart,arrivee,tel,YEAR(date) as an ,MONTH (date) as mois , DAY(date) as jour ,HOUR(date) as heure, MINUTE(date) as minutes FROM covoit, utilisateur WHERE covoit.auteur = utilisateur.id ORDER BY date desc");
         $covoit->execute();
 
         //Affichage des données
@@ -67,6 +74,7 @@ include('shared/bdd.php'); ?>
 
         </div>
     </div>
+
         <?php } ?>
 
     <?php include('shared/footer.php'); ?>

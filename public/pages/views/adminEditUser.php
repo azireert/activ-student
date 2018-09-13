@@ -16,7 +16,14 @@ if (!$_SESSION['id'] or $admin != 1){
 
 <body>
 	<?php include('shared/navbar.php'); ?>
-	<?php include('shared/banner.php'); ?>
+    <div class="container-fluid banner">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-3">
+                <h1 class="bannerTitle"><strong>Editer</strong></h1>
+            </div>
+        </div>
+    </div>
 
         // Requête pour récupérer les informations de l'utilisateur à modifier
         $reponse = $conn->query('SELECT * FROM utilisateur WHERE id = \'' . $_POST['update'] . '\'');
