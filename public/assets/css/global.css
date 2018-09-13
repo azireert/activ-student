@@ -177,3 +177,35 @@ span {
   height: 150px;
   width: 150px;
 }
+
+.editButton {
+  background-color: white;
+}
+
+.iconEdit {
+  color:  #007bff;
+  font-size: 18px;
+}
+
+.cardLeftAdmin {
+  margin-bottom: 2em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  border-right: none;
+  background-image: linear-gradient(to top, #3f51b1 0%, #5a55ae 13%, #7b5fac 25%, #8f6aae 38%, #a86aa4 50%, #cc6b8e 62%, #f18271 75%, #f3a469 87%, #f7c978 100%);
+  color : white;
+  padding: 2em;
+}
+
+.cardRightAdmin {
+  margin-bottom: 2em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  border-right: none;
+  padding: 2em;
+}
+
+.banner {
+  height: 150px;
+  background-color: #f6f6f6;
+}

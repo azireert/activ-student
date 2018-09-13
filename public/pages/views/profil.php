@@ -10,7 +10,8 @@ include('shared/bdd.php');
 </head> 
 
 <body>
-    <?php include('shared/navbar.php'); 
+    <?php include('shared/navbar.php');
+    include('shared/banner.php');
     include('../Controller/is_admin.php');?>
     
     <div class="container cardProfil">
@@ -79,7 +80,7 @@ include('shared/bdd.php');
     $reponse->closeCursor();
     ?>
     
-    <p class = edit><a href="edit_profil.php"><i class="fa fa-pencil"></i></a></p>
+    <p class = "edit" ><a href="edit_profil.php"><i class="fa fa-pencil"></i></a></p>
 
                 </div>
             <div class="col-md-3"></div>
@@ -87,7 +88,7 @@ include('shared/bdd.php');
             <!-- Espace Admin -->
         <?php if ($admin == 1){ ?>
             <div class="col-md-3 cardRight text-center">
-                <h5> Espace Administrateur </h1></br>
+                <h5> Espace Administrateur </h5></br>
                 <form action="account.php" method="post"> 
                     <div class="form-group"><button class="btn btn-primary" type="submit" name="compte"> Créer un compte </button></div>
                 </form>

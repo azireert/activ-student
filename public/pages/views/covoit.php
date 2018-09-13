@@ -10,6 +10,7 @@ include('shared/bdd.php'); ?>
 
 <body>
 	<?php include('shared/navbar.php'); ?>
+    <?php include('shared/banner.php'); ?>
     
     <!-- Formulaire pour remplir un nouveau post en covoit -->
     <form  action ="../Controller/add_covoit.php" method="post" data-bs-hover-animate="pulse">

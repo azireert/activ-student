@@ -11,7 +11,10 @@ include('shared/bdd.php');
 
 <body>
 
+
+
 	<?php include('shared/navbar.php'); ?>
+    <?php include('shared/banner.php'); ?>
     <script type="text/javascript">
         $(document).ready(function(){
             $('.collapse').collapse();
