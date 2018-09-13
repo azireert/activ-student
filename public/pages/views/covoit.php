@@ -38,7 +38,7 @@ include('shared/bdd.php'); ?>
 
 
         <?php // Requête lire les covoit
-        $covoit = $conn->prepare("SELECT nom ,description,depart,arrivee,tel,YEAR(date) as an ,MONTH (date) as mois , DAY(date) as jour ,HOUR(date) as heure, MINUTE(date) as minutes FROM covoit, utilisateur WHERE covoit.auteur = utilisateur.id ORDER BY date desc");
+        $covoit = $conn->prepare("SELECT nom , id_covoit,description,depart,arrivee,tel,YEAR(date) as an ,MONTH (date) as mois , DAY(date) as jour ,HOUR(date) as heure, MINUTE(date) as minutes FROM covoit, utilisateur WHERE covoit.auteur = utilisateur.id ORDER BY date desc");
         $covoit->execute();
 
         //Affichage des données
@@ -74,6 +74,7 @@ include('shared/bdd.php'); ?>
 
         </div>
     </div>
+
         <?php } ?>
 
     <?php include('shared/footer.php'); ?>
