@@ -53,6 +53,7 @@ include('shared/bdd.php');
                 <p><strong><?php echo $donnees['prenom']; ?></strong></p>
             </div>
             <div class="col-md-5 postBody">
+                <?php echo $donnees['id_actu']; ?>
 
                 <p class="date"><?php echo $donnees['date']; ?></p>
                 <p><?php echo $donnees['description']; ?></p>
@@ -100,21 +101,19 @@ include('shared/bdd.php');
     ?>
 
 
-                    <form method="post" action="../controller/com_actu.php" data-bs-hover-animate="pulse" >
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-md-5"></div>
-                                <div class="col-xs-1">
-                                    <button class="btn btn-primary" type="submit"><span class="commentPencil"><i class="fa fa-pencil"></i></span></button>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group"><input type="text" id="comment" class="form-control" placeholder="Entrez votre commentaire"/></div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-
-
+    <form action="../controller/com_actu.php" method="post" data-bs-hover-animate="pulse" >
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-5"></div>
+                <div class="col-xs-1">
+                    <button class="btn btn-primary" value=<?php echo $donnees['id_actu']; ?> name="id_actu_com" type="submit"><span class="commentPencil"><i class="fa fa-pencil"></i></span></button>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group"><input type="text" id="comment" class="form-control" name="description_com" placeholder="Entrez votre commentaire"/></div>
+                </div>
+            </div>
+        </div>
+    </form>
                             
     <?php
         $item++;
