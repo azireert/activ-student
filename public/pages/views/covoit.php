@@ -18,15 +18,14 @@ include('shared/bdd.php'); ?>
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
 
-                <div class="form-group"><textarea class="form-control" type="text" rows="1" cols="50" name="depart" required placeholder="ville de depart"></textarea></div>
-                <div class="form-group"><textarea class="form-control" type="text" rows="1" cols="50" name="arrivee" required placeholder="ville de arrivée"></textarea></div>
+                <div class="form-group"><input class="form-control" type="text" rows="1" cols="50" name="depart" required placeholder="ville de depart" /></div>
+                <div class="form-group"><input class="form-control" type="text" rows="1" cols="50" name="arrivee" required placeholder="ville de arrivée" /></div>
                 <div class="form-group"><textarea class="form-control" type="text" rows="5" cols="50" name="description" required placeholder="Description"></textarea></div>
                     <div class="form-group"><center><button class="btn btn-primary" type="submit" name="submit"><span class="pencilPost"><i class="fa fa-send"></i></span>Poster</button></center></div>
 
                 </div>
                 </div>
             </div>
-        </div>
     </form>
 
     <div class="container-fluid">

@@ -13,22 +13,35 @@ include('shared/bdd.php');
 
 	<?php include('shared/navbar.php'); ?>
 
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-3">
-				<h2>Équipe du BDE</h2>
-				<p>Président : Toto <br />0641526354</p>
-				<p>Secretaire : Jackie <br />0504865125</p>
-				<p>Vice Président : Packman <br />1587562354</p>
-				<p>Tresorier : Ruel <br />1475895458</p>
-			</div>
-			<div class="col-sm-8">
-				<h2>Voici les actualitées et sorties du BDE</h2>
+    <div class="container-fluid bannerBde">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-2">
+                <center><img class="img-fluid bde" src="../../assets/Images/johnny.jpg">
+                <p><strong>Président</strong></p>
+                </center>
+            </div>
+            <div class="col-md-2">
+                <center><img class="img-fluid bde" src="../../assets/Images/John-Doe.jpg">
+                <p><strong>Vice-Président</strong></p></center>
+            </div>
+            <div class="col-md-2">
+                <center><img class="img-fluid bde" src="../../assets/Images/secretaire.jpg">
+                <p><strong>Secrétaire</strong></p></center>
+            </div>
+            <div class="col-md-2">
+                <center><img class="img-fluid bde" src="../../assets/Images/bob.jpg">
+                <p><strong>Trésorier</strong></p></center>
+            </div>
+        </div>
+    </div>
+
 
 				<form  action ="../Controller/bde.php" method="post" data-bs-hover-animate="pulse">
 			        <div class="container-fluid postForm">
 			            <div class="row">
-			                <div class="col-md-4">
+                            <div class="col-md-3"></div>
+			                <div class="col-md-2">
 			            <div class="form-group">
 	                        <select class="custom-select mr-sm-2" name="type" id="inlineFormCustomSelect">
 	                            <option value="B1">Information générale</option>
@@ -38,7 +51,7 @@ include('shared/bdd.php');
 			                <div class="form-group"><input class="form-control" type="date" name="date" required placeholder="Date de l'évenement"></div>
 			                <div class="form-group"><input class="form-control" type="text" name="lieu" required placeholder="Lieu de l'évenement"></div>
 	                    </div>
-	                    <div class="col-md-8">
+	                    <div class="col-md-4">
 			            <div class="form-group">
 			                <textarea class="form-control" rows="5" cols="50" name="description" required placeholder="Exprimez vous"></textarea></div>
 			            <div class="form-group">
