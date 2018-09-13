@@ -24,7 +24,9 @@ include('shared/bdd.php');
     </div>
     <script type="text/javascript">
         $(document).ready(function(){
-            $('.collapse').collapse();
+            $('#myCollapsible').collapse({
+                toggle: false
+            })
         });
     </script>
 

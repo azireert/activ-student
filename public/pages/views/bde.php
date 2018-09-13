@@ -13,6 +13,14 @@ include('shared/bdd.php');
 
 	<?php include('shared/navbar.php'); ?>
 
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#myCollapsible').collapse({
+                toggle: false
+            })
+        });
+    </script>
+
     <div class="container-fluid bannerBde">
         <div class="row">
             <div class="col-md-2"></div>
@@ -136,7 +144,9 @@ include('shared/bdd.php');
 
                         <?php } ?>
 
-
+                        <button class = "btn btn-default btn-lg pull-right cross" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample" >
+                            <span><i class="fa fa-comment"></i></span>
+                        </button>
 
 
 
@@ -158,7 +168,7 @@ include('shared/bdd.php');
             if ($donnees['id_bde'] == $donnees2['id_bde_com']){      
 
     ?>
-    <div class="container-fluid commentBde">
+    <div class="container-fluid collapse commentBde" id="collapseExample">
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-6 commentaires">
@@ -175,7 +185,7 @@ include('shared/bdd.php');
 
 
     <form action="../Controller/com_bde.php" method="post" data-bs-hover-animate="pulse" >
-        <div class="container-fluid">
+        <div class="container-fluid postComment">
             <div class="row">
                 <div class="col-md-5"></div>
                 <div class="col-xs-1">
