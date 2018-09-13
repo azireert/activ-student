@@ -28,7 +28,7 @@ include('shared/bdd.php'); ?>
             </div>
     </form>
 
-    <div class="container-fluid">
+
         <?php // Requête lire les covoit
         $covoit = $conn->prepare("SELECT nom ,description,depart,arrivee,tel,YEAR(date) as an ,MONTH (date) as mois , DAY(date) as jour ,HOUR(date) as heure, MINUTE(date) as minutes FROM covoit, utilisateur WHERE covoit.auteur = utilisateur.id ORDER BY date desc");
         $covoit->execute();
@@ -38,6 +38,7 @@ include('shared/bdd.php'); ?>
 
 
         ?>
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-2">
@@ -64,8 +65,8 @@ include('shared/bdd.php'); ?>
             </div>
 
         </div>
-        <?php } ?>
     </div>
+        <?php } ?>
 
     <?php include('shared/footer.php'); ?>
 </body>

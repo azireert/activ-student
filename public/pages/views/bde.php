@@ -67,7 +67,7 @@ include('shared/bdd.php');
 			        include('../Controller/is_admin.php');
 
 			        // We retrieve the contents of many table
-			        $reponse = $conn->query('SELECT * FROM utilisateur, bde, image WHERE utilisateur .id = bde .auteur AND utilisateur .id = image .id_user ORDER BY bde .id DESC');
+			        $reponse = $conn->query('SELECT image.nom , utilisateur.prenom , bde.date , bde.lieu ,bde.description,YEAR(date_post) as an ,MONTH (date_post) as mois , DAY(date_post) as jour ,HOUR(date_post) as heure, MINUTE(date_post) as minutes FROM utilisateur, bde, image WHERE utilisateur .id = bde .auteur AND utilisateur .id = image .id_user ORDER BY bde .id DESC');
 
 			        $item = "item-1";
 
@@ -75,45 +75,39 @@ include('shared/bdd.php');
 
 			    ?>
 
-			    <div class="container-fluid postContent">
-			        <div class="row">
-			            <div class="col-md-1"></div>
-			            <div class="col-md-2 postPhoto text-center">
-			                <img class="photoHome" src="../../assets/uploads/<?php echo $donnees['nom']; ?>">
-			                <p><strong><?php echo $donnees['prenom']; ?></strong></p>
-			            </div>
-			            <div class="col-md-6 postBody">
-			                <p class="date"><?php echo $donnees['date_post']; ?></p>
-			                <p><?php echo $donnees['description']; ?></p>
-			                <p>Date et heure de l'évenement : <?php echo $donnees['date']; ?></p>
-			                <?php if($admin == 1) { ?>
-			                    <form action="../Controller/deleteActu.php" method="post">
-			                        <button type = "submit" class = "btn btn-default btn-lg pull-right">
-			                            <?php $_SESSION['id'] = $donnees['id']; ?>
-			                            <span><i class="fa fa-remove"></i></span>
-			                        </button>
-			                    </form>
-			                <?php } ?>
-			            </div>
-			        </div>
-			    </div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-8">
+                                    <div class="card" style="width: 50rem; height: 30rem;">
+                                        <div class="cardPhoto text-center">
+                                            <img class="card-img-top" src="../../assets/uploads/<?php echo $donnees['nom'];?>" alt="Card image cap">
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title"><?php echo $donnees['prenom']; ?></h5>
+                                            <p class="card-text"><?php echo $donnees['description']; ?></p>
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item"><strong>Date de l'événement : </strong><?php echo $donnees['date']; ?></li>
+                                            <li class="list-group-item"><strong>Lieu : </strong><?php echo $donnees['lieu']; ?></li>
+                                        </ul>
+                                        <div class="card-body">
+                                            <p class="date"><?php echo "le ".$donnees['jour']."/".$donnees['mois']."/".$donnees['an']." à ".$donnees['heure']." : ".$donnees['minutes']; ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
 
 			    <?php
-			        $item++;
 			        }
 			    ?>
 
 
-            </div>
-        </div>
-    </div>
-
-			</div>
 
 
-
-		</div>
-	</div>
 
 </body>
 
