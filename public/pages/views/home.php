@@ -12,7 +12,11 @@ include('shared/bdd.php');
 <body>
 
 	<?php include('shared/navbar.php'); ?>
-
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.collapse').collapse();
+        });
+    </script>
 
 
     
@@ -51,7 +55,6 @@ include('shared/bdd.php');
                 <p><strong><?php echo $donnees['prenom']; ?></strong></p>
             </div>
             <div class="col-md-5 postBody">
-                <?php echo $donnees['id_actu']; ?>
 
                 <p class="date"><?php echo $donnees['date']; ?></p>
                 <p><?php echo $donnees['description']; ?></p>
@@ -63,8 +66,7 @@ include('shared/bdd.php');
                         </button>
                     </form>
                 <?php } ?>
-                    <button ID="button" class = "btn btn-default btn-lg pull-right cross">
-
+                    <button class = "btn btn-default btn-lg pull-right cross" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample" >
                         <span><i class="fa fa-comment"></i></span>
                     </button>
 
@@ -80,13 +82,11 @@ include('shared/bdd.php');
 
         while ( $donnees2 = $reponse2->fetch()){
 
-            if ($donnees['id_actu'] == $donnees2['id_actu_com']){  
+            if ($donnees['id_actu'] == $donnees2['id_actu_com']){
 
-            echo $donnees['id_actu'];  
-            echo $donnees2['id_actu_com'];     
 
     ?>
-    <div style="display: block" id="commentaires" class="container-fluid">
+    <div class="container-fluid collapse" id="collapseExample">
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6 commentaires">
@@ -102,7 +102,7 @@ include('shared/bdd.php');
     ?>
 
 
-    <form action="../controller/com_actu.php" method="post" data-bs-hover-animate="pulse" >
+    <form action="../Controller/com_actu.php" method="post" data-bs-hover-animate="pulse" >
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-5"></div>
@@ -115,6 +115,7 @@ include('shared/bdd.php');
             </div>
         </div>
     </form>
+
                             
     <?php
         }
@@ -124,32 +125,6 @@ include('shared/bdd.php');
         <?php include('shared/footer.php'); ?>
     </footer>
 
-    <script>
-
-        var i = 0;
-
-        var elementDiv = document.getElementById('button');
-        var elementInput =document.getElementById('comment');
-
-        elementDiv.onclick = function() {
-            if (i % 2 === 0) {
-                document.getElementById('commentaires').style.display = 'block';
-            }else {
-                document.getElementById('commentaires').style.display = 'none';
-            }
-            i ++;
-        };
-
-        elementInput.onfocus = function() {
-            if (i % 2 === 0) {
-                document.getElementById('commentaires').style.display = 'block';
-            }else {
-                document.getElementById('commentaires').style.display = 'none';
-            }
-            i ++;
-        };
-
-    </script>
 
 </body>
 
