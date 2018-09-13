@@ -12,6 +12,7 @@ include('shared/bdd.php');
 <body>
 
 	<?php include('shared/navbar.php'); ?>
+    <?php include('shared/banner.php'); ?>
 
     <div class="container-fluid bannerBde">
         <div class="row">

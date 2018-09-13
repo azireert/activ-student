@@ -16,39 +16,74 @@ if($admin != 1 or !$_SESSION['id']){
 
 <body>
     <?php include('shared/navbar.php'); ?>
+    <?php include('shared/banner.php'); ?>
+
+
+        <div class="container cardProfil">
+            <div class="row">
 
     <?php 
     // Récupération de la liste de tout les utilisateurs
-    $listeUser = $conn->prepare("SELECT * FROM utilisateur");
+    $listeUser = $conn->prepare("SELECT utilisateur.id as id ,utilisateur.nom , prenom , permis , bde ,admin ,mail , tel , age , promo FROM utilisateur");
     $listeUser->execute();
 
     $array = array();
 
     // Affichage des utilisateurs
     while ($listeUserF = $listeUser->fetch()){
-        echo $listeUserF['mail'] . "</br>";
-        echo $listeUserF['nom'] . "</br>";
-        echo $listeUserF['prenom'] . "</br>";
-        echo $listeUserF['bde'] . "</br>";
-        echo $listeUserF['admin'] . "</br>";
-        echo $listeUserF['tel'] . "</br>";
-        echo $listeUserF['permis'] . "</br>";
+        $permis = "Oui";
+        $bde = "Oui";
+        $admin = "Oui";
+
+        if ($listeUserF['permis'] == 0){
+            $permis = "Non";
+        }
+        if ($listeUserF['bde'] == 0){
+            $permis = "Non";
+        }
+        if ($listeUserF['admin'] == 0){
+            $permis = "Non";
+        }
         ?>
 
-        
-        <!-- Suppression d'utilisateur (bouton) -->
-        <form action="../Controller/deleteUser.php" method="post">
-        <div class="form-group"><button class="btn btn-primary" value= <?php echo $listeUserF['id']?> type="submit" name="delete"> Supprimer ce compte </button></div>
-            
-        </form>
-        <form action="adminEditUser.php" method="post">
-            <div class="form-group"><button class="btn btn-primary" value= <?php echo $listeUserF['id']?> type="submit" name="update"> Modifier ce compte </button></div>
-            
-        </form>
+
+            <div class="col-md-3 cardLeftAdmin text-center">
+                <img class="img-fluid photoProfil" src="../../assets/uploads/default.jpg" alt="Card image cap">
+                <h1 class="card-title"><?php echo $listeUserF['prenom']; ?></h1>
+            </div>
+            <div class="col-md-3 cardRightAdmin text-center">
+                <p class="title"><span><i class="fa fa-envelope"></i></span><?php echo $listeUserF['mail']; ?></p>
+                <p class="title"><span><i class="fa fa-phone"></i></span><?php echo $listeUserF['tel']; ?></p>
+                <p class="title"><span><i class="fa fa-briefcase"></i></span><?php echo $listeUserF['promo']; ?></p>
+                <p class="title"><span><i class="fa fa-leaf"></i></span><?php echo $listeUserF['age']; ?> ans</p>
+
+                <p class="title"><span><i class="fa fa-road"></i></span>Permis : <?php echo $permis; ?></p>
+                <p class="title">Membre du BDE : <?php echo $bde; ?></p>
+                <p class="title">Admin : <?php echo $admin; ?></p>
+                <form action="adminEditUser.php" method="post">
+                <div class="form-group"><button class="btn btn-default editButton" value="<?php echo $listeUserF['id']?>" type="submit" name="update"><span class="iconEdit"><i class="fa fa-pencil"></i></span></button></div>
+                </form>
+
+                <form action="../Controller/deleteUser.php" method="post">
+                <div class="form-group"><button class="btn btn-default editButton" value=" <?php echo $listeUserF['id']?>" type="submit" name="delete"><span class="iconEdit"><i class="fa fa-remove"></i></span></button></div>
+                </form>
+            </div>
+
+
+
         <?php
-        echo "</br>";
     };
     ?>
+
+        </div>
+    </div>
+    </form>
+        
+        <!-- Suppression d'utilisateur (bouton) -->
+
+
+
+
 
     <?php include('shared/footer.php'); ?>
 </body>
