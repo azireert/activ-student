@@ -48,8 +48,8 @@ include('shared/bdd.php');
                         <div class="form-group"><input class="form-control" type="date" name="date" required placeholder="Date de l'évenement"></div>
                         <div class="form-group"><input class="form-control" type="text" name="lieu" required placeholder="Lieu de l'évenement"></div>
 	                    <select class="custom-select mr-sm-2" name="type" id="inlineFormCustomSelect">
-	                        <option value="B1">Information</option>
-	                        <option value="B2">Sortie</option>
+	                        <option value="information">Information</option>
+	                        <option value="sortie">Sortie</option>
 	                    </select></div>
 	                </div>
 	                <div class="col-md-4">
