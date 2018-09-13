@@ -56,7 +56,7 @@ while ($listeCovoitF = $listeCovoit->fetch()){
     // Delete covoit_com
     $deleteCovoit_com = $conn->prepare("DELETE FROM covoit_com WHERE id_covoit = :id");
     $deleteCovoit_com->execute(array(
-        'id' => $listeActuF['id_actu']
+        'id' => $listeCovoitF['id_covoit']
     ));
 
     
