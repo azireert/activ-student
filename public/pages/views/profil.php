@@ -73,6 +73,9 @@ include('shared/bdd.php');
 
     <?php }
     	$reponse = $conn->query('SELECT admin FROM utilisateur WHERE utilisateur .id = \'' . $_SESSION['id'] . '\' AND utilisateur .admin = 1');
+
+        $post = $conn->query('SELECT * FROM utilisateur, actu WHERE utilisateur .id = \'' . $_SESSION['id'] . '\' AND utilisateur .id = actu .auteur');
+        
         
         // Test du rang admin
     	if ($donnees = $reponse->fetch()){
@@ -107,7 +110,18 @@ include('shared/bdd.php');
                 </form>
             </div>
             <!-- Fin espace Admin -->
-        <?php } ?>
+        <?php } else { ?>
+
+            <div class="col-md-3 cardRight text-center" style="overflow:scroll;">
+                <h5> Voici vos 3 dernier postes : </h5></br>
+
+            <?php while ($post2 = $post->fetch()){ ?>
+            
+                <div><strong>Poste :</strong> <?php echo $post2['description']; ?></div><br />
+
+        <?php } } ?>
+                
+            </div>
 
             </div>
         </div>
