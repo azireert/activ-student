@@ -1,0 +1,7 @@
+﻿driver: pdo_mysql
+host: "51.75.29.35"
+port: 3306
+user: "root"
+password: "basketeurdu59"
+dbname: "activestudent"
+charset: "utf8"

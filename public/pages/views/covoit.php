@@ -50,7 +50,7 @@ include('shared/bdd.php'); ?>
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-2">
-                <div class="card" style="width: 18rem; height: 30rem;">
+                <div class="card" style=" height: 30rem;">
                     <div class="cardPhoto text-center">
                     <img class="card-img-top" src="../../assets/Images/profil.png" alt="Card image cap">
                     </div>

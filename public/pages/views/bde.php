@@ -79,8 +79,8 @@ include('shared/bdd.php');
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3"></div>
-            <div class="col-md-8">
-                <div class="card" style="width: 50rem; height: 30rem;">
+            <div class="col-md-6">
+                <div class="card" style="height: 35rem;">
                     <div class="cardPhoto text-center">
                         <img class="card-img-top" src="../../assets/uploads/<?php echo $donnees['nom'];?>" alt="Card image cap">
                     </div>
@@ -140,9 +140,9 @@ include('shared/bdd.php');
             if ($donnees['id_bde'] == $donnees2['id_bde_com']){      
 
     ?>
-    <div style="display: block" id="commentaires" class="container-fluid">
+    <div class="container-fluid commentBde">
     <div class="row">
-        <div class="col-md-3"></div>
+        <div class="col-md-2"></div>
         <div class="col-md-6 commentaires">
             <p style="text-align: right; font-size:18px;"><strong><?php echo $donnees2['prenom']." - "; ?></strong><span class="date"><?php echo $donnees2['date_com']; ?></span></p>
             <p style="text-align: right; font-size: 16px;"><?php echo $donnees2['description_com']; ?></p>
@@ -156,7 +156,7 @@ include('shared/bdd.php');
     ?>
 
 
-    <form action="../controller/com_bde.php" method="post" data-bs-hover-animate="pulse" >
+    <form action="../Controller/com_bde.php" method="post" data-bs-hover-animate="pulse" >
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-5"></div>
