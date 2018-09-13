@@ -69,7 +69,7 @@ include('shared/bdd.php');
 
 	include('../Controller/is_bde.php');
 
-	// We retrieve the contents of many table
+
 	$reponse = $conn->query('SELECT bde.id_bde , bde.type , image.nom , utilisateur.prenom , bde.date , bde.lieu ,bde.description,YEAR(date_post) as an ,MONTH (date_post) as mois , DAY(date_post) as jour ,HOUR(date_post) as heure, MINUTE(date_post) as minutes FROM utilisateur, bde, image WHERE utilisateur .id = bde .auteur AND utilisateur .id = image .id_user ORDER BY bde .id_bde DESC');
 
 	while ($donnees = $reponse->fetch()){ // Tant que l'on a une réponse positive, la boucle fonctionne
@@ -101,14 +101,32 @@ include('shared/bdd.php');
 
 
 
-                        <?php if ($donnees['type'] == "sortie") { ?> 
+                        <?php 
+                        // L'utilisateur fait il partie de l'evenemment 
+                        $isPresent = $conn->prepare("SELECT * FROM utilisateur_bde WHERE id_utilisateur = :id and id_bde = :idb");
+                        $isPresent->execute(array(
+                            'id' => $_SESSION['id'],
+                            'idb' => $donnees['id_bde']
+                        ));
+
+                        $quiVient = $conn->prepare("SELECT count(*) as total FROM utilisateur_bde WHERE id_bde = :idb ");
+                        $quiVient->execute(array(
+                            'idb' => $donnees['id_bde']
+                        ));
+                        $quiVientF = $quiVient->fetch();
+
+
+                        if($isPresentF = $isPresent->fetch()){
+                            echo $quiVientF['total'] . " personnes participent déjà!";
+                        }
+                        elseif ($donnees['type'] == "sortie") { ?> 
 
                             <form action="../Controller/participe.php" method="post" data-bs-hover-animate="pulse">
                                 <div class="custom-control custom-checkbox mr-sm-2">
                                     <div class="form-group">
                                         <input type="checkbox" name="participe" class="custom-control-input" id="customControlAutosizing" required>
                                         <label class="custom-control-label" for="customControlAutosizing">Je viens !</label>
-                                        <button class="btn btn-primary" value=<?php echo $donnees['id_bde']; ?> name="id_bde" type="submit"><span class="commentPencil"><i class="fa fa-pencil"></i></span></button> Nombre de participants : ...
+                                        <button class="btn btn-primary" value=<?php echo $donnees['id_bde']; ?> name="id_bde" type="submit"><span class="commentPencil"><i class="fa fa-pencil"></i></span></button> 
                                     </div>
                                 </div>
                             </form>
