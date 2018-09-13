@@ -41,8 +41,8 @@ if($admin != 1 or !$_SESSION['id']){
         <div class="form-group"><button class="btn btn-primary" value= <?php echo $listeUserF['id']?> type="submit" name="delete"> Supprimer ce compte </button></div>
             
         </form>
-        <form action="../Controller/editUser.php" method="post">
-            <div class="form-group"><button class="btn btn-primary" type="submit" name="update"> Modifier ce compte </button></div>
+        <form action="adminEditUser.php" method="post">
+            <div class="form-group"><button class="btn btn-primary" value= <?php echo $listeUserF['id']?> type="submit" name="update"> Modifier ce compte </button></div>
             
         </form>
         <?php
