@@ -39,8 +39,6 @@ include('shared/bdd.php');
         // We retrieve the contents of many table
         $reponse = $conn->query('SELECT * FROM utilisateur, actu, image WHERE utilisateur .id = actu .auteur AND utilisateur .id = image .id_user ORDER BY actu .id_actu DESC');
 
-        $item = "item-1";
-
         while ($donnees = $reponse->fetch()){ // While I have answer ---> I display data in a loop
 
     ?>
@@ -82,10 +80,13 @@ include('shared/bdd.php');
 
         while ( $donnees2 = $reponse2->fetch()){
 
-            if ($donnees2['id_actu_com'] == $donnees['id_actu']){       
+            if ($donnees['id_actu'] == $donnees2['id_actu_com']){  
+
+            echo $donnees['id_actu'];  
+            echo $donnees2['id_actu_com'];     
 
     ?>
-    <div style="display: none" id="commentaires" class="container-fluid">
+    <div style="display: block" id="commentaires" class="container-fluid">
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6 commentaires">
@@ -116,7 +117,6 @@ include('shared/bdd.php');
     </form>
                             
     <?php
-        $item++;
         }
     ?>
 
