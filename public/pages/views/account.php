@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
-
+<?php session_start();
+include('shared/bdd.php');
+include('../Controller/is_admin.php'); ?>
 <head>
     <?php include('shared/head.php'); ?>
 </head>
@@ -31,9 +33,22 @@
                             <option value="I4">I4</option>
                             <option value="I5">I5</option>
                         </select></div>
+                    <!-- Seulement si admin -->
+                    <?php if($admin == 1){ ?>
+                        <div class="custom-control custom-checkbox mr-sm-2">
+                        <div class="form-group"><input type="checkbox" name="admin" class="custom-control-input" id="customControlAutosizing">
+                            <label class="custom-control-label" for="customControlAutosizing">Admin</label></div>
+                        </div>
+
+                        <div class="custom-control custom-checkbox mr-sm-2">
+                        <div class="form-group"><input type="checkbox" name="bde" class="custom-control-input" id="customControlAutosizing a">
+                            <label class="custom-control-label" for="customControlAutosizing a">BDE</label></div>
+                        </div>
+                    <?php }?>
+
                     <div class="custom-control custom-checkbox mr-sm-2">
-                        <div class="form-group"><input type="checkbox" name="permis" class="custom-control-input" id="customControlAutosizing">
-                            <label class="custom-control-label" for="customControlAutosizing">Avez-vous le permis ?</label></div>
+                        <div class="form-group"><input type="checkbox" name="permis" class="custom-control-input" id="customControlAutosizing b">
+                            <label class="custom-control-label" for="customControlAutosizing b">Avez-vous le permis ?</label></div>
                     </div>
                     <div class="form-group"><input class="btn btn-primary" type="submit" name="inscription" value="Créer un compte"></div>
                     <a href="../../index.php">Vous avez déjà un compte ? Connectez-vous</a>

@@ -37,10 +37,18 @@ else{
         else{
             $permis = 0;
         }
-            
+        
+        $admin = 0;
+        $bde = 0;
+        if($_POST['admin'] == 1){
+            $admin = 1;
+        };
+        if($_POST['bde'] == 1){
+            $bde = 1;
+        };
     
         // Requête insertion d'utilisateur
-        $req = $conn->prepare("INSERT INTO utilisateur (nom, prenom, tel, mail, password, admin, bde, age, permis, promo) VALUES (:nom, :prenom, :tel, :mail, :password, 0, 0, :age, :permis, :promo) ");
+        $req = $conn->prepare("INSERT INTO utilisateur (nom, prenom, tel, mail, password, admin, bde, age, permis, promo) VALUES (:nom, :prenom, :tel, :mail, :password, :admin, :bde, :age, :permis, :promo) ");
         $req->execute(array(
             'mail' => $mail,
             'nom' => $nom,
@@ -49,7 +57,9 @@ else{
             'age' => $age,
             'password' => $password,
             'permis' => $permis,
-            'promo' => $_POST['promo']
+            'promo' => $_POST['promo'],
+            'admin' => $admin,
+            'bde' => $bde
         ));
 
         $image = $conn->prepare("SELECT id FROM utilisateur WHERE mail = :mail");

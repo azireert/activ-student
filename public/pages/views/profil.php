@@ -88,14 +88,11 @@ include('shared/bdd.php');
         <?php if ($admin == 1){ ?>
             <div class="col-md-3 cardRight text-center">
                 <h5> Espace Administrateur </h1></br>
-                <form action="#" method="post"> 
+                <form action="account.php" method="post"> 
                     <div class="form-group"><button class="btn btn-primary" type="submit" name="compte"> Créer un compte </button></div>
                 </form>
-                <form action="#" method="post">
-                    <div class="form-group"><button class="btn btn-primary" type="submit" name="deleteCompte"> Supprimer un compte </button></div>
-                </form>
                 <form action="listeUser.php" method="post">   
-                    <div class="form-group"><button class="btn btn-primary" type="submit" name="updateCompte"> Modifier un compte </button></div>
+                    <div class="form-group"><button class="btn btn-primary" type="submit" name="updateCompte"> Editer un compte </button></div>
                 </form>
             </div>
             <!-- Fin espace Admin -->
