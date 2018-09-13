@@ -52,7 +52,6 @@ include('shared/bdd.php');
 				<?php
 
 			        include('../Controller/is_admin.php');
-			        include('../Controller/is_bde.php');
 
 			        // We retrieve the contents of many table
 			        $reponse = $conn->query('SELECT * FROM utilisateur, bde, image WHERE utilisateur .id = bde .auteur AND utilisateur .id = image .id_user ORDER BY bde .id DESC');
@@ -74,7 +73,7 @@ include('shared/bdd.php');
 			                <p class="date"><?php echo $donnees['date_post']; ?></p>
 			                <p><?php echo $donnees['description']; ?></p>
 			                <p>Date et heure de l'évenement : <?php echo $donnees['date']; ?></p>
-			                <?php if($admin == 1 || $Bde == 1) { ?>
+			                <?php if($admin == 1) { ?>
 			                    <form action="../Controller/deleteActu.php" method="post">
 			                        <button type = "submit" class = "btn btn-default btn-lg pull-right">
 			                            <?php $_SESSION['id'] = $donnees['id']; ?>
