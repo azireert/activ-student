@@ -36,6 +36,7 @@ include('shared/bdd.php');
         </div>
     </div>
 
+    <?php include('../Controller/is_bde.php'); if($admin == 1 || $Bde == 1) { ?>
 
 				<form  action ="../Controller/bde.php" method="post" data-bs-hover-animate="pulse">
 			        <div class="container-fluid postForm">
@@ -43,13 +44,12 @@ include('shared/bdd.php');
                             <div class="col-md-3"></div>
 			                <div class="col-md-2">
 			            <div class="form-group">
+                            <div class="form-group"><input class="form-control" type="date" name="date" required placeholder="Date de l'évenement"></div>
+                            <div class="form-group"><input class="form-control" type="text" name="lieu" required placeholder="Lieu de l'évenement"></div>
 	                        <select class="custom-select mr-sm-2" name="type" id="inlineFormCustomSelect">
 	                            <option value="B1">Information générale</option>
 	                            <option value="B2">Sortie</option>
-	                            <option value="B3">Vie du BDE</option>
 	                        </select></div>
-			                <div class="form-group"><input class="form-control" type="date" name="date" required placeholder="Date de l'évenement"></div>
-			                <div class="form-group"><input class="form-control" type="text" name="lieu" required placeholder="Lieu de l'évenement"></div>
 	                    </div>
 	                    <div class="col-md-4">
 			            <div class="form-group">
@@ -62,14 +62,18 @@ include('shared/bdd.php');
 			        </div>
 			    </form>
 
+    <?php } ?>
+
+    
+
+
+
 				<?php
 
-			        include('../Controller/is_admin.php');
+			        include('../Controller/is_bde.php');
 
 			        // We retrieve the contents of many table
 			        $reponse = $conn->query('SELECT image.nom , utilisateur.prenom , bde.date , bde.lieu ,bde.description,YEAR(date_post) as an ,MONTH (date_post) as mois , DAY(date_post) as jour ,HOUR(date_post) as heure, MINUTE(date_post) as minutes FROM utilisateur, bde, image WHERE utilisateur .id = bde .auteur AND utilisateur .id = image .id_user ORDER BY bde .id DESC');
-
-			        $item = "item-1";
 
 			        while ($donnees = $reponse->fetch()){ // While I have answer ---> I display data in a loop
 
@@ -88,7 +92,7 @@ include('shared/bdd.php');
                                             <p class="card-text"><?php echo $donnees['description']; ?></p>
                                         </div>
                                         <ul class="list-group list-group-flush">
-                                            <li class="list-group-item"><strong>Date de l'événement : </strong><?php echo $donnees['date']; ?></li>
+                                            <?php if($donnees['date'] != NULL) { ?><li class="list-group-item"><strong>Date de l'événement : </strong><?php echo $donnees['date']; ?></li><?php } ?>
                                             <li class="list-group-item"><strong>Lieu : </strong><?php echo $donnees['lieu']; ?></li>
                                         </ul>
                                         <div class="card-body">
